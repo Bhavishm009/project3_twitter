@@ -1,23 +1,24 @@
 import React, { useRef, useState } from "react";
-import style from "./whatHappening.module.css";
+import style from "./Tweet.module.css";
 import { FaGlobe, FaImage, FaMapMarker } from "react-icons/fa";
 import { FiCamera } from "react-icons/fi";
 import { CgSmileMouthOpen } from "react-icons/cg";
 import { BiUserCircle } from "react-icons/bi";
-import CustomButton from "../../Atom/Button/CustomButton";
+import CustomButton from "../Button/CustomButton";
+import ConstData from "../../ConstData/ConstData";
 import { tweetPosts } from "../../ConstData/ConstData";
-import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { isTweetPost } from "../../Recoil/Atom1/Atom";
+import { Avatar } from "antd";
 
-function WhatHappening() {
-  let Data = JSON.parse(localStorage.getItem("user0"));
- 
+function Tweet() {
+  const [isOpen, setIsOpen] = useState(false);
   const [image, setImage] = useState("");
-  const [storeArray, setStoreArray] = useState("");
-  const [loginStatus, setLoginStatus] = useRecoilState(isTweetPost);
-  const inputRef = useRef(null);
 
+  const [loginStatus, setLoginStatus] = useRecoilState(isTweetPost);
+  const [forTrue, setForTrue] = useState(0);
+  const [storeArray, setStoreArray] = useState("");
+  const inputRef = useRef(null);
   const Icons = [
     { id: 0, icon: <FaGlobe /> },
     { id: 1, icon: <FaImage />, action: "pickImage" },
@@ -26,31 +27,30 @@ function WhatHappening() {
     { id: 4, icon: <CgSmileMouthOpen /> },
     { id: 5, icon: <BiUserCircle /> },
   ];
-
   function takeTweet(e) {
     setStoreArray(e.target.value);
   }
- 
   function handleOnClickIcon(action) {
     if (action === "pickImage") {
       inputRef.current.click();
     }
   }
 
-
+  // Function to pick image
   function handleOnSelectImage(e) {
     let reader = new FileReader();
     reader.onload = (e) => {
       setImage(e.target.result);
-      // inputRef.current = null;
-      
+      inputRef.current = null;
     };
     reader.readAsDataURL(e.target.files[0]);
   }
   function handleNewTweet() {
+    setIsOpen(true);
+
     let newObj = {
-      name: Data.Name,
-      handlerName: Data.Email,
+      name: "Profile Name",
+      handlerName: "@Profile Handler",
       organization: "United States government organization",
       tweetText: storeArray,
       tweetPic: image,
@@ -65,37 +65,34 @@ function WhatHappening() {
 
     tweetPosts.unshift(newObj);
 
+    setForTrue(forTrue + 1);
     setLoginStatus(loginStatus + 1);
-    setImage("");
-    inputRef.current.value = ''
+    
   }
 
   return (
     <>
       <div className={style.parentContainer}>
         <div className={style.main}>
+          {/* <button onClick={Handleclose}>X</button> */}
           <div className={style.wrapper}>
+            <Avatar></Avatar>
             <textarea
-              placeholder="What's happening?"
+              placeholder="What's happening?........"
               rows={8}
               cols={60}
               onChange={takeTweet}
-            />
+            ></textarea>
+
             <div className={style.privacy}>
               <FaGlobe />
               <span>Everyone can reply</span>
             </div>
-            { 
-            image &&  
-            <div className={style.imageWrapper}>
-                <img
-                    src={image}
-                    height = '100%'
-                    width = '100%'
-                    // alt = 'foo'
-                />
-                </div>
-            }
+            {image && (
+              <div className={style.imageWrapper}>
+                <img src={image} height="100%" width="100%" alt="foo" />
+              </div>
+            )}
             <div className={style.iconscontainer}>
               {Icons.map((menu) => {
                 return (
@@ -128,5 +125,4 @@ function WhatHappening() {
     </>
   );
 }
-
-export default WhatHappening;
+export default Tweet;
