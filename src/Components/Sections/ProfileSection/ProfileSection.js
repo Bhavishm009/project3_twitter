@@ -4,6 +4,7 @@ import style from "./ProfileSection.module.css";
 import WestIcon from "@mui/icons-material/West";
 import CustomButton from "../../../Atom/Button/CustomButton";
 import { useNavigate } from "react-router-dom";
+import UserTweet from "./UserTweet/UserTweet";
 // import RightContainer2 from "../../rightContainer/RightContainer2/RightContainer2"
 
 function ProfileSection() {
@@ -39,6 +40,7 @@ function ProfileSection() {
     </div>
     {/* <RightContainer2
     /> */}
+    <UserTweet/>
     </>
   );
 }
