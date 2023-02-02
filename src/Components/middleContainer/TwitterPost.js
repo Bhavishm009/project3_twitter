@@ -31,7 +31,7 @@ export default function TwitterPost() {
   const [requestedProfile, setRequestedProfile] = useState("");
   const [icon, setIcon] = useState("rgb(77, 75, 75)");
   const [isOpen, SetisOpen] = useState(false);
-  // const setRequestedProfile = useRecoilState(requestedProfileAtom)
+
 
   function handleLike(takeLikes) {
     if (post[takeLikes.Index].inrDcr === false) {
@@ -41,8 +41,6 @@ export default function TwitterPost() {
       post[takeLikes.Index].inrDcr = true;
       post[takeLikes.Index].color = "red";
     }
-
-    //if(post[takeLikes.Index].inrDcr==true)
     else {
       post[takeLikes.Index].likesCount = takeLikes.Data - 1;
 
