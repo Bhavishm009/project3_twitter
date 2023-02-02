@@ -21,7 +21,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { tweetPosts } from "../../ConstData/ConstData";
 import TweetReply from "../../Atom/TweetReply/TweetReply";
 
-export default function TwitterPost() {
+export default function TwitterPost({userProfileInfo}) {
   const [post, setPost] = useState(tweetPosts);
   const nevigate = useNavigate();
   const [countForRender, setCountForRender] = useState(0);
@@ -60,8 +60,18 @@ export default function TwitterPost() {
 
   function xyz(dataName) {
     setNewProfile(dataName);
-    nevigate("/Profile2");
+    setRequestedProfile(userProfileInfo)
+    const paramsValue=dataName.handlerName.replace("@","")
+    nevigate(`/profile/${paramsValue}`)
   }
+  const {
+    name='',
+    handlerName='',
+    organization='',
+    tweets='',
+    profilepic
+  }=userProfileInfo||{}
+
   const handleClose = () => {
     SetisOpen(false);
   };

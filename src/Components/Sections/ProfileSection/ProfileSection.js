@@ -33,7 +33,8 @@ function ProfileSection() {
       <div key={Data.id} className={style.textcontaint}>
         <h4>{`${"Name:-"}${Data.Name}`}</h4>
         <h5>{`${"@"}${Data.Email}`}</h5>
-        <h5>{`${"Mob no:-"}${Data.Phone}`}</h5>
+        <h5>&#x1F4F1;  {`${Data.Phone}`}</h5>
+        <h5>&#x1F4C6;{`${Data.Date} ${Data.Year} ${Data.Month}`}</h5>
         <h5>followers :- 2000</h5>
         <h5>likesCount :- 154 likes</h5>
       </div>

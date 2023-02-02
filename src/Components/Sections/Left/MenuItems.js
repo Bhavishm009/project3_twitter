@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 function LeftSec() {
   const nevigate = useNavigate();
   let Data = JSON.parse(localStorage.getItem("user0"));
+  let paramsValue = Data.Name
 
   const menu = [
     {
@@ -34,7 +35,8 @@ function LeftSec() {
     {
       id: 7,
       icon: <BsPerson />,
-      Name: <p onClick={() => nevigate("/Profile")}>Profile</p>,
+      Name: <p onClick={() => nevigate( `/Profile/${paramsValue}`)
+    }>Profile</p>,
     },
     { id: 8, icon: <CgMoreO />, Name: "More" },
   ];
