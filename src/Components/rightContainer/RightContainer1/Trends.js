@@ -61,7 +61,7 @@ const Trends = () => {
   function handleRequestSeeAll () {
     setIsShowingAllTrendings(!isShowingAllTrendings)
     if(isShowingAllTrendings) {
-       return setTrendings(isNotIntrested.slice(0,4))
+       return setTrendings(isNotIntrested.slice(0,2))
     }
     setTrendings(isNotIntrested)
 }

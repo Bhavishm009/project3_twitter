@@ -83,16 +83,15 @@ function Login() {
                 <h1>Enter your Password</h1>
                 <div>
                   <Input
-                   type={"password"}
                     className={style.input2}
                     placeholder="passsword"
                     handleOnchange={passWordChangeValue}
+                    type={"password"}
                   />
                 </div>
 
                 <div className={style.password}>
                   <CustomButton
-                  
                     buttonText="Log In"
                     btnNext={handleLogIn}
                     customCss={style.loginbtn}

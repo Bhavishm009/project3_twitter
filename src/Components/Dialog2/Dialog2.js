@@ -1,6 +1,5 @@
 import { Button, Popover } from 'antd';
 import { useState } from 'react';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 import style from "./Dialog2.module.css"
 
@@ -23,7 +22,7 @@ const Dialog2 = (props) => {
       open={open}
       onOpenChange={handleOpenChange}
     >
-      <Button className={style.btn} ><MoreHorizIcon/></Button>
+      <Button className={style.btn} type="primary">...</Button>
     </Popover>
   );
 };

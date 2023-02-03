@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
 import { FaHouseUser, FaHashtag, FaNotification } from "react-icons/fa";
+// import { GrNotification } from "react-icons/gr";
 import { BsBookmark, BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbFileText } from "react-icons/tb";
@@ -16,28 +17,18 @@ import CustomButton2 from "../../../Atom/Button/CustomButton2";
 import DialogBox from "../../Dialog/DialogBox";
 import { useNavigate } from "react-router-dom";
 
+
 function LeftSec() {
   const nevigate = useNavigate();
   let Data = JSON.parse(localStorage.getItem("user0"));
-  let paramsValue = Data.Name
-
   const menu = [
-    {
-      id: 1,
-      icon: <FaHouseUser />,
-      Name: <p onClick={() => nevigate("/")}>Home</p>,
-    },
+    { id: 1, icon: <FaHouseUser />, Name: <p onClick={()=> nevigate("/") }>Home</p> },
     { id: 2, icon: <FaHashtag />, Name: "Explore" },
     { id: 3, icon: <VscBellDot />, Name: "Notifications" },
     { id: 4, icon: <HiOutlineMail />, Name: "Message" },
     { id: 5, icon: <BsBookmark />, Name: "Bookmarks" },
     { id: 6, icon: <TbFileText />, Name: "Lists" },
-    {
-      id: 7,
-      icon: <BsPerson />,
-      Name: <p onClick={() => nevigate( `/Profile/${paramsValue}`)
-    }>Profile</p>,
-    },
+    { id: 7, icon: <BsPerson />, Name: <p onClick={()=> nevigate( `/Profile/${paramsValue}`) }>Profile</p> },
     { id: 8, icon: <CgMoreO />, Name: "More" },
   ];
   const [isOpen, SetisOpen] = useState(false);
@@ -54,22 +45,21 @@ function LeftSec() {
   const handleClickClose = () => {
     setOpen(false);
   };
-
+  let paramsValue=Data.Name
   return (
     <>
       <div className={style.container}>
         <div className={style.innerContainer}>
           <div className={style.innerContainer2}>
             <div className={style.logo}>
-              <p onClick={() => nevigate("/")}>
-                <FaTwitter />
-              </p>
+             
+              <p onClick={()=> nevigate("/") }> <FaTwitter /></p>
             </div>
 
-            {menu.map((menu, index) => {
+            {menu.map((menu,index) => {
               return (
                 <div className={style.sidebar} key={index}>
-                  <div className={style.sidebarOption}>
+                  <div className={style.sidebarOption} >
                     <h2>{menu.icon}</h2>
                     <span>{menu.Name}</span>
                   </div>
@@ -97,7 +87,12 @@ function LeftSec() {
           </div>
           <div>
             <CustomButton2
-              picture={<Avatar alt="User" src="https://simg.nicepng.com/png/small/73-730077_verify-users-via-e-mail-verified-user.png" />}
+              picture={
+                <Avatar
+                  alt="Remy Sharp"
+                  src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                />
+              }
               text={Data?.Name}
               text2={Data?.Email}
               button={handleOpen}

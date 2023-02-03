@@ -21,6 +21,7 @@ function Tweet() {
   const [forTrue, setForTrue] = useState(0);
   const [storeArray, setStoreArray] = useState("");
   const inputRef = useRef(null);
+  const disabled=(!storeArray)
   const Icons = [
     { id: 0, icon: <FaGlobe /> },
     { id: 1, icon: <FaImage />, action: "pickImage" },
@@ -110,6 +111,7 @@ function Tweet() {
                 );
               })}
                  <CustomButton
+                 disable={disabled}
             buttonText="Tweet"
             btnNext={handleNewTweet}
             customCss={style.button}

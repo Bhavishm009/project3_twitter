@@ -40,21 +40,19 @@
     margin-left: 4rem;
     width: 5rem;
     flex-direction: row;
-    padding: 1rem;
+ padding: 1rem;
     border: none;
     outline: none;
     align-items: center;
     text-align: center;
-    background-color: #1A8CD8;
-    color: azure;
+  
+
 }
+
 .btn2{
-    color: #1da1f2;
-    background-color: transparent;
+    background: none;
+    color: blueviolet;
+    font: 2px;
     border: none;
-    outline: none;
-    font-size: 1rem;
-    margin-right: 0.5rem;
-    padding: 1rem 0.5rem;
-    cursor: pointer;
+   outline: none;
   }

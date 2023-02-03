@@ -1,9 +1,10 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect } from "react";
+
 import style from "./ProfileSection.module.css";
 // import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import WestIcon from "@mui/icons-material/West";
 import CustomButton from "../../../Atom/Button/CustomButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useParams} from "react-router-dom";
 import {userProfile,userTweet,userTweetProfile} from "../../../Recoil/Atom1/Atom";
 import { useRecoilValue ,useSetRecoilState} from "recoil";
 import { Avatar } from "@mui/material";
@@ -15,35 +16,25 @@ import UploadIcon from "@mui/icons-material/Upload";
 import VerifiedIcon from '@mui/icons-material/Verified';
 import style2 from "./Unknownuser.module.css"
 
-// import {tweetPosts} from "../../../ConstData/ConstData"
+
 function ProfileSection() {
+  const uid = useParams()
    const nevigate = useNavigate();
    const unknownProfileData=useRecoilValue(userProfile)
    const replyTweetPost=useSetRecoilState(userTweet)
    const replyProfileDetails=useSetRecoilState(userTweetProfile)
    const tweets = unknownProfileData.tweets
-   
-  //  const tweetsReply=unknownProfileData.tweets.TweetReplies
-   console.log(tweets )
-  //  const[newPost,setNewPost] = useRecoilState(isTweet);
-  // const[newProfile,setNewProfile] = useRecoilState(userTweet);
-  // const[post,setPost]=useState(tweetPosts)
-  // console.log(...post)
-//  useEffect(() => {
-//   fetchData()
-  
-//   },[newPost]);
+   const [likesCount, setLikesCount] = useState(1000);
+   const [icon, setIcon] = useState("blue");
+ 
+   function handleLike() {
+    likesCount===1000 ? setLikesCount(1001): setLikesCount(1000)
+   if(likesCount===1000){
+     setIcon("red")
+   }else{
+     setIcon("blue")
+   }}
 
-// function  fetchData()
-//   {
-//     setPost(tweetPosts)
-//   }
-
-//  function xyz (dataName)  {
-//     setNewProfile(dataName)
-//     nevigate("/Profile2")
-
-//   };
 
 function forReply(takeData)
 {
@@ -52,13 +43,7 @@ function forReply(takeData)
 }
   return (
     <>
-    <div className={style.wrapper}  
-    
-    // onClick={ ()=>xyz(({
-
-      
-    // } )) }
-    >
+    <div className={style.wrapper}>
       <div className={style.feed__header}>
         <p onClick={()=> nevigate("/") }><WestIcon /></p>
         <h2>{unknownProfileData.name}</h2>
@@ -75,8 +60,8 @@ function forReply(takeData)
         </span>
       </div>
      <div className={style.textcontaint}>
-        <h4>{`${"Name:-"}${unknownProfileData.name}`}</h4>
-        <h5>{`${"@"}${unknownProfileData.handlerName}`}</h5>
+        <h4>{`Name:- ${unknownProfileData.name}`}</h4>
+        <h5>{`${unknownProfileData.handlerName}`}</h5>
         <h5>{`${"tweetCount:-"}${unknownProfileData.tweetCount}`}</h5>
         <h5>{`${"likescount:-"}${unknownProfileData.likesCount}`}</h5>
         <h5>{`${"followers:-"}${unknownProfileData.followers}`}</h5>
@@ -92,11 +77,7 @@ function forReply(takeData)
           <>
           
             <div key={x.id}>
-     
-
             <div className={style2.wrapper} onClick={()=>forReply(({
-
-
 name:unknownProfileData.name,
 id:x.id,
 tweetText : x.tweetText,
@@ -114,9 +95,6 @@ TweetReplies:{
 
             }))}>
 
-
-
-             
             <div className={style2.container1}>
               <div >
               

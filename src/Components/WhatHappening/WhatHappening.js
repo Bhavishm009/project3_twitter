@@ -8,16 +8,17 @@ import CustomButton from "../../Atom/Button/CustomButton";
 import { tweetPosts } from "../../ConstData/ConstData";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { isTweetPost, Personaltweet } from "../../Recoil/Atom1/Atom";
+
+import { isTweetPost,Personaltweet } from "../../Recoil/Atom1/Atom";
 
 function WhatHappening() {
   let Data = JSON.parse(localStorage.getItem("user0"));
- 
   const [image, setImage] = useState("");
   const [storeArray, setStoreArray] = useState("");
   const [loginStatus, setLoginStatus] = useRecoilState(isTweetPost);
   const [personal, setPersonal ] = useRecoilState(Personaltweet);
   const inputRef = useRef(null);
+  const disabled=(!storeArray)
 
   const Icons = [
     { id: 0, icon: <FaGlobe /> },
@@ -31,20 +32,19 @@ function WhatHappening() {
   function takeTweet(e) {
     setStoreArray(e.target.value);
   }
- 
+  // function to triiger picking image input
   function handleOnClickIcon(action) {
     if (action === "pickImage") {
       inputRef.current.click();
     }
   }
 
-
+  // Function to pick image
   function handleOnSelectImage(e) {
     let reader = new FileReader();
     reader.onload = (e) => {
       setImage(e.target.result);
-      // inputRef.current = null;
-      
+    
     };
     reader.readAsDataURL(e.target.files[0]);
   }
@@ -65,11 +65,11 @@ function WhatHappening() {
     };
 
     tweetPosts.unshift(newObj);
-
     setLoginStatus(loginStatus + 1);
     setImage("");
-    inputRef.current.value = '';
-    setPersonal([newObj,...personal]);
+    setStoreArray("");
+    inputRef.current.value=""
+    setPersonal([newObj,...personal])
   }
 
   return (
@@ -94,7 +94,7 @@ function WhatHappening() {
                     src={image}
                     height = '100%'
                     width = '100%'
-                    // alt = 'foo'
+                    alt = 'foo'
                 />
                 </div>
             }
@@ -110,13 +110,15 @@ function WhatHappening() {
                   </div>
                 );
               })}
-            </div>
-          </div>
-          <CustomButton
+                 <CustomButton
+          disable={disabled}
             buttonText="Tweet"
             btnNext={handleNewTweet}
             customCss={style.button}
           />
+            </div>
+          </div>
+        
         </div>
         {/* hidden input */}
         <input

@@ -15,7 +15,7 @@ function DialogBox(props) {
     onClose(selectedValue);
   };
   function handaleClick() {
-    let text = 'Do You Logout ! \n Ok or Cancel';
+    let text = 'Do You Logout ! \nEither Ok or Cancel';
       if(window.confirm (text) == true){
           setLoginStatus(false);
     alert("successfully Logout");
@@ -24,8 +24,7 @@ function DialogBox(props) {
       }
   }
   return (
-    <Dialog title="Loading"  onClose={handleClose} open={open}
-    style={{width:'40px',width:'60px',color:'white'}}>
+    <Dialog onClose={handleClose} open={open}>
       <div className={style.container}>
         <CustomButton
           buttonText="Add an existing user"
@@ -37,7 +36,6 @@ function DialogBox(props) {
           customCss={style.button}
         />
       </div>
-  
     </Dialog>
   );
 }
