@@ -3,7 +3,7 @@ import style from "./Login.module.css";
 import CustomButton from "../../Atom/Button/CustomButton";
 import { FaTwitter } from "react-icons/fa";
 import Input from "../../Atom/Input/Input";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { isLoginAtom } from "../../Recoil/Atom1/Atom";
 
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { isValidLogin } from "../../helper";
 function Login() {
   const [nextbtn, setNextBtn] = useState(false);
- 
+
   const nevigate = useNavigate();
   const [loginv, setLoginV] = useState("");
   const [passWordValue, setPasswordValue] = useState("");
@@ -35,37 +35,43 @@ function Login() {
     }
 
     let flagForLs = 0;
-    for (var i = 0; i < localStorage.length; i++) {
-      let k = JSON.parse(localStorage.getItem("user" + i));
-    
-      if (k.Email === loginv || k.Name === loginv || k.Phone == loginv) {
-        flagForLs = 1;
-        //const store=i;
-        setLocalstorageKey(i);
-      }
+    if (localStorage.length === 0) {
+      alert("LocalStorage is empty");
+    } else {
+      let k = JSON.parse(localStorage.getItem("user"));
+      k.map((element, i) => {
+        console.log(element.Email);
+        if (
+          element.Email === loginv ||
+          element.Name === loginv ||
+          element.Phone === loginv
+        ) {
+          flagForLs = 1;
+
+          console.log(element.Email);
+          setLocalstorageKey(i);
+        }
+        });
     }
-    if (flagForLs == 1 && flag == 0) {
+    if (flagForLs === 1 && flag === 0) {
       setNextBtn(true);
-    } else if (flagForLs == 0) {
+    } else if (flagForLs === 0) {
       setNextBtn(false);
       setLoginError("User Not Found");
     }
   };
   const handleLogIn = () => {
- 
-
     let flagForLs = 0;
-    let k = JSON.parse(localStorage.getItem("user" + localstorageKey));
-    console.log(k.password);
+    let k = JSON.parse(localStorage.getItem("user"));
 
-    if (k.password === passWordValue) {
+    if (k[localstorageKey].password === passWordValue) {
       flagForLs = 1;
     }
 
-    if (flagForLs == 1) {
+    if (flagForLs === 1) {
       setLoginStatus(true);
       alert("succesfully login");
-      
+
       nevigate("/");
     } else {
       alert("false");

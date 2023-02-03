@@ -132,22 +132,42 @@ function Register() {
 
     if (flag == 1) {
       var flagForLs = 0;
-      for (var i = 0; i < localStorage.length; i++) {
-        let k = JSON.parse(localStorage.getItem("user" + i));
+     // for (var i = 0; i < localStorage.length; i++) 
 
-        if (k.Email === email) {
+     if(localStorage.length!=0)
+     {
+        let k = JSON.parse(localStorage.getItem("user" ));
+        k.map((element)=>{
+        if (element.Email === email) {
           flagForLs = 1;
         }
-      }
+      }) }}
+      
       if (flagForLs == 1) {
         alert("USER Email is Already Exist");
       } else {
       }
-    }
+    
 
-    if (flag == 1 && flagForLs == 0) {
-      localStorage.setItem("user" + incl, JSON.stringify(Data));
-      setIncl(incl + 1);
+    if (flag == 1 && flagForLs == 0)
+     {
+      data.push(Data)
+      setData([...data])
+
+      if(localStorage.length==0)
+      {
+         localStorage.setItem('user', JSON.stringify(data ));
+      }
+
+     else{
+      let oldData = JSON.parse(localStorage.getItem("user"))
+      //console.log(oldData)
+     // localStorage.setItem('user', JSON.stringify([ ...oldData, ...data ]));
+      
+      localStorage.setItem("user" , JSON.stringify([...oldData,...data]))
+     // localStorage.setItem('user', JSON.stringify(data ));
+     }
+      // setIncl(incl + 1);
       alert("USER Sucessfully Registered");
       setLoginStatus(true);
       // window.location.assign("/");

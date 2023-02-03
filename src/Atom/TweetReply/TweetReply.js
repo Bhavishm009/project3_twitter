@@ -57,29 +57,6 @@ function TweetReply() {
     post[index].tweetComment=([...post[index].tweetComment,newObj1])
     console.log(storeArray)
 
-
-
-    /*let newObj = {
-      name: Data.Name,
-      handlerName: Data.Email,
-      organization: "United States government organization",
-      tweetText: storeArray,
-      tweetPic: image,
-      tweetCount: 100,
-      retweetCount: 100,
-      likesCount: 100,
-      viewsCount: "102k",
-      followers: 200,
-      followings: 400,
-      joinedDate: "22 dec 2022",
-    };*/
-
-   // tweetPosts.unshift(newObj);
-
-    //setForTrue(forTrue + 1);
-    //setLoginStatus(loginStatus + 1);
-   // inputRef.current.value = "";
-    //setProfileTweet([...profileTweet, newObj]);
   }
   function handleClose() {
     setIsOpen(false);
@@ -94,7 +71,7 @@ function TweetReply() {
             customCss={style.btnClose}
             btnNext={handleClose}
           />
-          {/* <button onClick={Handleclose}>X</button> */}
+        
           <div className={style.wrapper}>
             <textarea
               placeholder="What's happening?........"
@@ -133,7 +110,7 @@ function TweetReply() {
             </div>
           </div>
         </div>
-        {/* hidden input */}
+     
         <input
           type="file"
           hidden

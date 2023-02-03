@@ -68,45 +68,7 @@ function Tweetpost() {
           <UploadIcon />
         </div>
       </div>
-      <div className={style2.wrapper}>
-        <div className={style2.container1}>
-          <div>
-            <Avatar
-              className={style2.avatar}
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/408px-Elon_Musk_2015.jpg"
-            />
-          </div>
-
-          <div className={style2.innercontainer}>
-            <span className={style2.text}>
-              <h3>
-                Elon Musk
-                <VerifiedIcon style={{ color: "blue" }} />
-              </h3>
-            </span>
-            <p>{tweetPostData.tweetText}</p>
-          </div>
-        </div>
-        <div className={style2.icons}>
-          <span>
-            {tweetPostData.tweetCount}
-            <ChatBubbleOutlineIcon />
-          </span>
-          <span>
-            {tweetPostData.retweetCount}
-            <SyncIcon />
-          </span>
-          <span>
-            {tweetPostData.likesCount}
-            <FavoriteBorderIcon />
-          </span>
-          <span>
-            {tweetPostData.viewsCount}
-            <PollIcon />
-          </span>
-          <UploadIcon />
-        </div>
-      </div>
+     
       {post[index].tweetComment.length > 0 ? (
         <>
           {post[index].tweetComment.map((data) => (
@@ -156,6 +118,45 @@ function Tweetpost() {
       ) : (
         <></>
       )}
+       <div className={style2.wrapper}>
+        <div className={style2.container1}>
+          <div>
+            <Avatar
+              className={style2.avatar}
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/408px-Elon_Musk_2015.jpg"
+            />
+          </div>
+
+          <div className={style2.innercontainer}>
+            <span className={style2.text}>
+              <h3>
+                Elon Musk
+                <VerifiedIcon style={{ color: "blue" }} />
+              </h3>
+            </span>
+            <p>{tweetPostData.tweetText}</p>
+          </div>
+        </div>
+        <div className={style2.icons}>
+          <span>
+            {tweetPostData.tweetCount}
+            <ChatBubbleOutlineIcon />
+          </span>
+          <span>
+            {tweetPostData.retweetCount}
+            <SyncIcon />
+          </span>
+          <span>
+            {tweetPostData.likesCount}
+            <FavoriteBorderIcon />
+          </span>
+          <span>
+            {tweetPostData.viewsCount}
+            <PollIcon />
+          </span>
+          <UploadIcon />
+        </div>
+      </div>
     </>
   );
 }

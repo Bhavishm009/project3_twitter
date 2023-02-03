@@ -108,3 +108,7 @@
   background-color: #131E3A;
 
 }
+.Icon:hover{
+ cursor: pointer;
+ color:red;
+}

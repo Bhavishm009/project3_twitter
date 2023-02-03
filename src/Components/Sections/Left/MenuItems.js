@@ -20,7 +20,10 @@ import { useNavigate } from "react-router-dom";
 
 function LeftSec() {
   const nevigate = useNavigate();
-  let Data = JSON.parse(localStorage.getItem("user0"));
+  let Data = JSON.parse(localStorage.getItem("user"));
+ // console.log(Data)
+  //console.log(Data[2].Name)
+  
   const menu = [
     { id: 1, icon: <FaHouseUser />, Name: <p onClick={()=> nevigate("/") }>Home</p> },
     { id: 2, icon: <FaHashtag />, Name: "Explore" },
@@ -45,7 +48,8 @@ function LeftSec() {
   const handleClickClose = () => {
     setOpen(false);
   };
-  let paramsValue=Data.Name
+  var paramsValue=Data[localStorage.length-1].Name
+  console.log(paramsValue)
   return (
     <>
       <div className={style.container}>
@@ -53,14 +57,14 @@ function LeftSec() {
           <div className={style.innerContainer2}>
             <div className={style.logo}>
              
-              <p onClick={()=> nevigate("/") }> <FaTwitter /></p>
+              <p onClick={()=> nevigate("/")} style={{cursor:'pointer'}}> <FaTwitter /></p>
             </div>
 
             {menu.map((menu,index) => {
               return (
                 <div className={style.sidebar} key={index}>
                   <div className={style.sidebarOption} >
-                    <h2>{menu.icon}</h2>
+                    <h2 className={style.Icon}>{menu.icon}</h2>
                     <span>{menu.Name}</span>
                   </div>
                 </div>
@@ -93,8 +97,8 @@ function LeftSec() {
                   src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                 />
               }
-              text={Data?.Name}
-              text2={Data?.Email}
+              text={Data[localStorage.length-1].Name}
+              text2={Data[localStorage.length-1].Email}
               button={handleOpen}
               customCss={style.button2}
             />

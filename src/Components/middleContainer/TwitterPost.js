@@ -21,7 +21,6 @@ import {
 import { Navigate, useNavigate } from "react-router-dom";
 import { tweetPosts } from "../../ConstData/ConstData";
 import TweetReply from "../../Atom/TweetReply/TweetReply";
-import { useLayoutEffect } from "react";
 
 export default function TwitterPost() {
   const [post, setPost] = useState(tweetPosts);
@@ -50,7 +49,7 @@ export default function TwitterPost() {
     
     }
    
-    //if(post[takeLikes.Index].inrDcr==true)
+  
     else
     {
      post[takeLikes.Index].likesCount=takeLikes.Data-1
@@ -82,9 +81,7 @@ export default function TwitterPost() {
 
   }
   useEffect(()=>{handleClickOpen},[count])
-  // useEffect(()=>{
-  //   handleClickOpen()
-  // },[count])
+  
   
   const handleClickOpen = (index) => {
  
