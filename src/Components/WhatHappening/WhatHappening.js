@@ -55,7 +55,7 @@ function WhatHappening() {
       handlerName:  Data[getLocalStorageIndex].Email,
       organization: "United States government organization",
       tweetText: storeArray,
-      tweetPic: image,
+      tweetPic:  image,
       tweetCount: 100,
       retweetCount: 100,
       likesCount: 100,

@@ -52,7 +52,7 @@ function LeftSec() {
   const handleClickClose = () => {
     setOpen(false);
   };
-  var paramsValue=Data[getLocalStorageIndex].Name
+  var paramsValue=Data[getLocalStorageIndex]?.Name
   //console.log(paramsValue)
   return (
     <>
@@ -68,8 +68,8 @@ function LeftSec() {
               return (
                 <div className={style.sidebar} key={index}>
                   <div className={style.sidebarOption} >
-                  <h2 className={style.Icons}>{menu.icon}</h2>
-                    <span className={style.Icons}>{menu.Name}</span>
+                    <h2>{menu.icon}</h2>
+                    <span>{menu.Name}</span>
                   </div>
                 </div>
               );
@@ -84,7 +84,7 @@ function LeftSec() {
                 open={isOpen}
                 onClose={handleClose}
                 style={{
-                  background: "#1DA1F2",
+                  background: "rgba(91, 112, 131, 0.4)",
                   fontSize: "15px",
                   lineHeight: "40px",
                 }}
@@ -98,7 +98,7 @@ function LeftSec() {
               picture={
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://www.shutterstock.com/image-vector/businessman-profile-picture-user-sign-260nw-302150789.jpg"
+                  src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                 />
               }
               text={Data[getLocalStorageIndex].Name}
