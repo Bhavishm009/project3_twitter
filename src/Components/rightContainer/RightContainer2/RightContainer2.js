@@ -52,7 +52,7 @@ function Righthomebox2() {
       text2: "virat@gmail.com",
     },
   ]);
-  const [trending , setTrendings] = useState(followContainer.slice(0,4))
+  const [trending , setTrendings] = useState(followContainer.slice(0,2))
   const [isShowingAllTrendings , setIsShowingAllTrendings] = useState(false)
 
   const handleClick = (id) => {
@@ -71,7 +71,7 @@ function Righthomebox2() {
   function handleRequestSeeAll () {
       setIsShowingAllTrendings(!isShowingAllTrendings)
       if(isShowingAllTrendings) {
-         return setTrendings(followContainer.slice(0,4))
+         return setTrendings(followContainer.slice(0,2))
       }
       setTrendings(followContainer)
   }

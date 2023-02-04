@@ -98,7 +98,7 @@ function LeftSec() {
               picture={
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  src="https://www.shutterstock.com/image-vector/businessman-profile-picture-user-sign-260nw-302150789.jpg"
                 />
               }
               text={Data[getLocalStorageIndex].Name}

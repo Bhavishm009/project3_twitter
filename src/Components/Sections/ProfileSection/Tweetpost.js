@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { userTweet, forPassingId } from "../../../Recoil/Atom1/Atom";
+import { userTweet, forPassingId,forLocalStorageIndex } from "../../../Recoil/Atom1/Atom";
 import { Avatar } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import SyncIcon from "@mui/icons-material/Sync";
@@ -14,6 +14,7 @@ import { useState } from "react";
 // import TweetReply from '../../../Atom/TweetReply/TweetReply';
 // import CustomButton from '../../../Atom/Button/CustomButton';
 function Tweetpost() {
+  const getLocalStorageIndex=useRecoilValue(forLocalStorageIndex)
   const [post, setPost] = useState(tweetPosts);
   let Data = JSON.parse(localStorage.getItem("user"));
 
@@ -77,7 +78,7 @@ function Tweetpost() {
                 <div>
                   <Avatar
                     className={style2.avatar}
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Steve_Jobs_Headshot_2010-CROP2.jpg/800px-Steve_Jobs_Headshot_2010-CROP2.jpg"
+                    src="https://www.shutterstock.com/image-vector/businessman-profile-picture-user-sign-260nw-302150789.jpg"
                   />
                 </div>
 
@@ -85,7 +86,7 @@ function Tweetpost() {
                   <>
                     <span className={style2.text}>
                       <h3>
-                        {Data[Data.length-1].Name}
+                        {Data[getLocalStorageIndex].Name}
                         <VerifiedIcon style={{ color: "#1D9BF0", fontSize: "1.5rem" }} />
                       </h3>
                     </span>
