@@ -68,8 +68,8 @@ function LeftSec() {
               return (
                 <div className={style.sidebar} key={index}>
                   <div className={style.sidebarOption} >
-                    <h2>{menu.icon}</h2>
-                    <span>{menu.Name}</span>
+                  <h2 className={style.Icons}>{menu.icon}</h2>
+                    <span className={style.Icons}>{menu.Name}</span>
                   </div>
                 </div>
               );
@@ -84,7 +84,7 @@ function LeftSec() {
                 open={isOpen}
                 onClose={handleClose}
                 style={{
-                  background: "rgba(91, 112, 131, 0.4)",
+                  background: "#1DA1F2",
                   fontSize: "15px",
                   lineHeight: "40px",
                 }}

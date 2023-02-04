@@ -21,7 +21,7 @@ function ProfileSection() {
     <>
     <div className={style.wrapper}>
       <div className={style.feed__header}>
-        <p onClick={()=> nevigate("/") }><WestIcon /></p>
+        <p onClick={()=> nevigate("/Home") }><WestIcon /></p>
         <h2>{Data[getLocalStorageIndex].Name}</h2>
       </div>
         <img className={style.container} alt="img" src="https://gifimage.net/wp-content/uploads/2018/04/rainbow-background-gif-9.gif" />
@@ -40,7 +40,7 @@ function ProfileSection() {
         <h4>{`${Data[getLocalStorageIndex].Name}`}</h4>
         <h5>{`${"@"}${Data[getLocalStorageIndex].Email}`}</h5>
         <h5>followers :- 2000</h5>
-        <h5>likesCount :- 154 likes</h5>
+        <h5></h5>
       </div>
     </div>
     <UserTweet />
