@@ -7,16 +7,17 @@ import { BiUserCircle } from "react-icons/bi";
 import CustomButton from "../../Atom/Button/CustomButton";
 import { tweetPosts } from "../../ConstData/ConstData";
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState,useRecoilValue } from "recoil";
 
-import { isTweetPost,Personaltweet } from "../../Recoil/Atom1/Atom";
+import { isTweetPost,Personaltweet,forLocalStorageIndex } from "../../Recoil/Atom1/Atom";
 
 function WhatHappening() {
-  let Data = JSON.parse(localStorage.getItem("user0"));
+  let Data = JSON.parse(localStorage.getItem("user"));
   const [image, setImage] = useState("");
   const [storeArray, setStoreArray] = useState("");
   const [loginStatus, setLoginStatus] = useRecoilState(isTweetPost);
   const [personal, setPersonal ] = useRecoilState(Personaltweet);
+  const getLocalStorageIndex=useRecoilValue(forLocalStorageIndex)
   const inputRef = useRef(null);
   const disabled=(!storeArray)
 
@@ -50,8 +51,8 @@ function WhatHappening() {
   }
   function handleNewTweet() {
     let newObj = {
-      name: Data.Name,
-      handlerName: Data.Email,
+      name: Data[getLocalStorageIndex].Name,
+      handlerName:  Data[getLocalStorageIndex].Email,
       organization: "United States government organization",
       tweetText: storeArray,
       tweetPic: image,

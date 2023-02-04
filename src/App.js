@@ -11,9 +11,10 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/Login" element={<Login />} />
+          <Route path="/Home" element={<Home />} />
           <Route path="/Register" element={<Register />} />
-          <Route path="/" element={<Home />} /> 
+          {/* <Route path="/" element={<Home />} />  */}
+          <Route path="/" element={<Login />} /> 
           <Route path="/Profile/:name" element={<Profile />} />
           <Route path="/Profile2/:name" element={<Profile2 />} />
           <Route path="/Tweetpage" element={<Tweetpage />}/>

@@ -15,7 +15,7 @@ import { useState } from "react";
 // import CustomButton from '../../../Atom/Button/CustomButton';
 function Tweetpost() {
   const [post, setPost] = useState(tweetPosts);
-  let Data = JSON.parse(localStorage.getItem("user0"));
+  let Data = JSON.parse(localStorage.getItem("user"));
 
   const tweetPostData = useRecoilValue(userTweet);
   const index = useRecoilValue(forPassingId);
@@ -85,7 +85,7 @@ function Tweetpost() {
                   <>
                     <span className={style2.text}>
                       <h3>
-                        {Data.Name}
+                        {Data[Data.length-1].Name}
                         <VerifiedIcon style={{ color: "#1D9BF0", fontSize: "1.5rem" }} />
                       </h3>
                     </span>

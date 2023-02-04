@@ -14,6 +14,7 @@ import { Month, Date, Dayy } from "../../Components/Dob/Dob";
 import { useSetRecoilState } from "recoil";
 import { isLoginAtom } from "../../Recoil/Atom1/Atom";
 import { useNavigate } from "react-router-dom";
+import { nanoid } from "nanoid";
 
 function Register() {
   const [form, Setform] = useState(false);
@@ -68,6 +69,7 @@ function Register() {
   function submitFunction() {
     console.log(date);
     const Data = {
+      id :nanoid(2),
       Name: name,
       Phone: phone,
       Email: email,

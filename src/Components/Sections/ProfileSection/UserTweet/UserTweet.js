@@ -34,7 +34,7 @@ function UserTweet() {
                     </div>
         
                     <div className={style2.img}>
-                    {data.tweetPic ? 
+                    {/* {data.tweetPic ?  */}
               <img
                 style={{
                   width: "30rem",
@@ -43,7 +43,10 @@ function UserTweet() {
                 }}
                 alt="picture"
                 src={x.tweetPic}
-              /> : <></> }
+              /> 
+              
+              
+              {/* : <></> } */}
                     </div>
                     <div className={style2.icons}>
                           <span>

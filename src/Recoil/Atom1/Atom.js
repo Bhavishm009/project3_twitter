@@ -1,10 +1,9 @@
-import { useEffect } from "react";
 import { atom } from "recoil";
 
 
 export const isLoginAtom = atom({
   key: "isLogin",
-  default: true,
+  default: false,
 });
 
 
@@ -55,4 +54,8 @@ export const forPassingId = atom({
   key: "Passid",
   default:1,
 });
- 
+
+export const forLocalStorageIndex = atom({
+  key: "forLocalStorageIndex",
+  default:0,
+});
