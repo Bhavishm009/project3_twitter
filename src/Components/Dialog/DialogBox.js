@@ -24,11 +24,12 @@ function DialogBox(props) {
       }
   }
   return (
-    <Dialog onClose={handleClose} open={open}>
+    <Dialog onClose={handleClose} open={props.open}>
       <div className={style.container}>
         <CustomButton
           buttonText="Add an existing user"
           customCss={style.button}
+         
         />
         <CustomButton
           btnNext={handaleClick}

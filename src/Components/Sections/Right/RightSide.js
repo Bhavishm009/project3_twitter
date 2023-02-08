@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./RightSide.module.css";
-// import Input from "../../../Atom/Input/Input";
 import RightContainer2 from "../../rightContainer/RightContainer2/RightContainer2";
 import Trends from "../../rightContainer/RightContainer1/Trends";
 import Search from "../../../Atom/Search/search";

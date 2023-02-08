@@ -15,7 +15,7 @@ function ProfileSection() {
   let Data = JSON.parse(localStorage.getItem("user"));
   return (
     <>
-    <div className={style.wrapper}>
+    <div className={style.wrapper} key={Data.id}>
       <div className={style.feed__header}>
         <p onClick={()=> nevigate("/Home") }><WestIcon /></p>
         <h2>{Data[getLocalStorageIndex].Name}</h2>
@@ -32,7 +32,7 @@ function ProfileSection() {
       </div>
       
 
-<div key={Data.id} className={style.textcontaint}>
+<div  className={style.textcontaint}>
 
         <h2>{`${Data[getLocalStorageIndex].Name}`}</h2>
         <h4 style={{color:'silver'}}>{`${Data[getLocalStorageIndex].Email}`}</h4>

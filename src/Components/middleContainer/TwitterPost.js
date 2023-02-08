@@ -97,7 +97,7 @@ function handleClickOpen (index) {
     <>
       {post?.map((data,i) => {
         return (
-          <div className={style.wrapper}>
+          <div key={i} className={style.wrapper}>
             <div className={style.container1}>
               <div
                 onClick={() =>
@@ -125,7 +125,7 @@ function handleClickOpen (index) {
                 <span className={style.text}>
                   <h3>
                     {data.name}
-                    <VerifiedIcon style={{ color: "blue" }} />
+                    <VerifiedIcon style={{ color: "#1DA1F2" }} />
                   </h3>
                 </span>
                 <h4>{data.handlerName}</h4>

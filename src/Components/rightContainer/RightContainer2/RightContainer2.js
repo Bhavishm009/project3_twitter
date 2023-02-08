@@ -11,42 +11,42 @@ function Righthomebox2() {
     
     {
       id: 1,
-      tag: <i class="far fa-solid fa-badge-check"></i>,
+      tag: <i className="far fa-solid fa-badge-check"></i>,
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "virat",
       text2: "virat@gmail.com",
     },
     {
       id: 2,
-      tag: <i class="fa fa-solid fa-badge-check"></i>,
+      tag: <i className="fa fa-solid fa-badge-check"></i>,
       src: "https://www.cricketsoccer.com/wp-content/uploads/2020/09/i.jpg",
       text: "Rohit",
       text2: "rohits@gmail.com",
     },
     {
       id: 3,
-      tag: <i class="fa fa-solid fa-badge-check"></i>,
+      tag: <i className="fa fa-solid fa-badge-check"></i>,
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "mahi",
       text2: "virat@gmail.com",
     },
     {
       id: 4,
-      tag: <i class="fa fa-solid fa-badge-check"></i>,
+      tag: <i className="fa fa-solid fa-badge-check"></i>,
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "virat",
       text2: "virat@gmail.com",
     },
     {
       id: 5,
-      tag: <i class="fa fa-solid fa-badge-check"></i>,
+      tag: <i className="fa fa-solid fa-badge-check"></i>,
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "mahi",
       text2: "virat@gmail.com",
     },
     {
       id: 6,
-      tag: <i class="fa fa-solid fa-badge-check"></i>,
+      tag: <i className="fa fa-solid fa-badge-check"></i>,
       src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "virat",
       text2: "virat@gmail.com",
@@ -79,14 +79,14 @@ function Righthomebox2() {
     <div className={style.container}>
       <h1>Who to follow</h1>
       <div className={style.main}>
-        {trending.map((menu) => {
+        {trending.map((menu,id) => {
           return (
-            <div className={style.wrapper}>
+            <div key={id}className={style.wrapper}>
               <Avatar alt="Remy Sharp" src={menu.src} />
               <div className={style.img}>
                 <h3>
                   {menu.text}
-                  <span style={{ color: "blue" }}> {menu.tag} </span><VerifiedIcon style={{color:"blue",fontSize:"20px"}}/>
+                  <span style={{ color: "blue" }}> {menu.tag} </span><VerifiedIcon style={{color:"#1DA1F2",fontSize:"15px"}}/>
                 </h3>
                 <h6>{menu.text2}</h6>
               </div>
