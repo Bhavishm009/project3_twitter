@@ -7,7 +7,9 @@
     height: 100%;
    
 }
-
+body{
+    background-color: black;
+}
 .middleContainer{
     width: 40%;
 }

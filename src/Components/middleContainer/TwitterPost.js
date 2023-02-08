@@ -17,7 +17,7 @@ import {
   userProfile,
   requestedProfileAtom,
   forPassingId
-} from "../../Recoil/Atom1/Atom";
+} from "../../Recoil/Atom";
 import {  useNavigate } from "react-router-dom";
 import { tweetPosts } from "../../ConstData/ConstData";
 import TweetReply from "../../Atom/TweetReply/TweetReply";

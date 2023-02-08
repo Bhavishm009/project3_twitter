@@ -9,8 +9,8 @@ import CustomButton from "../Button/CustomButton";
 import ConstData from "../../ConstData/ConstData";
 import { tweetPosts } from "../../ConstData/ConstData";
 import { useRecoilState } from "recoil";
-import { isTweetPost, Personaltweet,forPassingId } from "../../Recoil/Atom1/Atom";
-// import { Avatar } from "antd";
+import { isTweetPost, Personaltweet,forPassingId } from "../../Recoil/Atom";
+
 
 function TweetReply() {
   const [isOpen, setIsOpen] = useState(false);

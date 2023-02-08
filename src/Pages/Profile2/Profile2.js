@@ -4,7 +4,7 @@ import Unknownuser from '../../Components/Sections/ProfileSection/Unknownuser'
 import RightSide from '../../Components/Sections/Right/RightSide'
 import style from "./Profile2.module.css"
 import { useRecoilValue } from "recoil";
-import { isLoginAtom } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom } from "../../Recoil/Atom";
 import { useNavigate } from "react-router-dom";
 function Profile2() {
 

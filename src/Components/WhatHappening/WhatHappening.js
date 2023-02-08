@@ -9,8 +9,8 @@ import { tweetPosts } from "../../ConstData/ConstData";
 import { useEffect } from "react";
 import { useRecoilState,useRecoilValue, useSetRecoilState } from "recoil";
 
-import { isTweetPost,Personaltweet,forLocalStorageIndex,countForTweet } from "../../Recoil/Atom1/Atom";
-import { json } from "react-router-dom";
+import { isTweetPost,Personaltweet,forLocalStorageIndex,countForTweet } from "../../Recoil/Atom";
+
 
 function WhatHappening() {
   let Data = JSON.parse(localStorage.getItem("user"));

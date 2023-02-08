@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { userTweet, forPassingId,forLocalStorageIndex } from "../../../Recoil/Atom1/Atom";
+import { userTweet, forPassingId,forLocalStorageIndex } from "../../../Recoil/Atom";
 import { Avatar } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import SyncIcon from "@mui/icons-material/Sync";
@@ -11,8 +11,6 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import style2 from "./Tweetpost.module.css";
 import { tweetPosts } from "../../../ConstData/ConstData";
 import { useState } from "react";
-// import TweetReply from '../../../Atom/TweetReply/TweetReply';
-// import CustomButton from '../../../Atom/Button/CustomButton';
 function Tweetpost() {
   const [post, setPost] = useState(JSON.parse(localStorage.getItem("constTweetPosts")));
   const getLocalStorageIndex=useRecoilValue(forLocalStorageIndex)

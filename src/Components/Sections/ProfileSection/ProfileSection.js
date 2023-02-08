@@ -4,7 +4,7 @@ import UserTweet from "./UserTweet/UserTweet";
 import WestIcon from "@mui/icons-material/West";
 import CustomButton from "../../../Atom/Button/CustomButton";
 import { useNavigate } from "react-router-dom";
-import { forLocalStorageIndex} from "../../../Recoil/Atom1/Atom"
+import { forLocalStorageIndex} from "../../../Recoil/Atom"
 import { useRecoilValue } from "recoil";
 import { VscCalendar } from "react-icons/vsc";
 

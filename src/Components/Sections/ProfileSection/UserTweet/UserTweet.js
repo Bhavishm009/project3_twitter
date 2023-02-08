@@ -7,7 +7,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PollIcon from "@mui/icons-material/Poll";
 import UploadIcon from "@mui/icons-material/Upload";
 import VerifiedIcon from '@mui/icons-material/Verified';
-import {Personaltweet} from "../../../../Recoil/Atom1/Atom"
+import {Personaltweet} from "../../../../Recoil/Atom"
 import { useRecoilState } from 'recoil'
 import { SouthAmerica } from '@mui/icons-material';
 

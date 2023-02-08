@@ -12,7 +12,7 @@ import Input from "../../Atom/Input/Input";
 import { Link } from "react-router-dom";
 import { Month, Date, Dayy } from "../../Components/Dob/Dob";
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom, forLocalStorageIndex } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom, forLocalStorageIndex } from "../../Recoil/Atom";
 import { useNavigate } from "react-router-dom";
 import  {tweetPosts} from "../../ConstData/ConstData"
 import { nanoid } from "nanoid";
