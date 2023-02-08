@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import style from "./card.module.css"
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom } from "../../Recoil/Atom";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import DialogBox from '../../Components/Dialog/DialogBox';
 function Card(props) {

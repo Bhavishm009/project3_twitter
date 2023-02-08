@@ -4,7 +4,7 @@ import style from "./Dialog.module.css";
 import { Button, Popover } from "antd";
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom } from "../../Recoil/Atom";
 import { useState } from "react";
 
 

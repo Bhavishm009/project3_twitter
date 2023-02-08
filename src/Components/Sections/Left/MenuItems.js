@@ -15,7 +15,7 @@ import { VscBellDot } from "react-icons/vsc";
 import { Avatar } from "@mui/material";
 // import CustomButton2 from "../../../Atom/Button/CustomButton2";
 import { useNavigate } from "react-router-dom";
-import {forLocalStorageIndex} from "../../../Recoil/Atom1/Atom"
+import {forLocalStorageIndex} from "../../../Recoil/Atom"
 import { useRecoilValue } from "recoil";
 import Dialog2 from "../../Dialog2/Dialog2";
 // import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
