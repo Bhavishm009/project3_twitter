@@ -11,14 +11,14 @@ const Trends = () => {
       id: 1,
       isNotIntrested: false,
       country: "Trending in India",
-      keyword: "#Tech",
+      keyword: "#Ms Dhoni",
       totalKeywords: "8000k Tweets",
     },
     {
       id: 2,
       isNotIntrested: false,
       country: "Trending in India",
-      keyword: "#Mi-7",
+      keyword: "#Virat kohli",
       totalKeywords: "6000k Tweets",
     },
     {
@@ -31,15 +31,15 @@ const Trends = () => {
     {
       id: 4,
       isNotIntrested: true,
-      country: "Trending in Technology",
-      keyword: "#Web3.0",
+      country: "Trending in Sports",
+      keyword: "#ViratKohli",
       totalKeywords: "2000k Tweets",
     },
     {
       id: 5,
       isNotIntrested: false,
-      country: "Trending in Entertainment",
-      keyword: "#Song's",
+      country: "Trending in Sports",
+      keyword: "#sachin",
       totalKeywords: "2000k Tweets",
     },
   ]);

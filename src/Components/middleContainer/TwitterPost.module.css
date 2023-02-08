@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  color: #1DA1F2;
+  color: rgb(102, 102, 192);
 }
 .img{
 padding-left: 4rem;

@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
-import { FaHouseUser, FaHashtag, FaNotification } from "react-icons/fa";
-// import { GrNotification } from "react-icons/gr";
+import { FaHouseUser, FaHashtag} from "react-icons/fa";
 import { BsBookmark, BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbFileText } from "react-icons/tb";
@@ -24,8 +23,6 @@ function LeftSec() {
   const nevigate = useNavigate();
   let Data = JSON.parse(localStorage.getItem("user"));
   const getLocalStorageIndex=useRecoilValue(forLocalStorageIndex)
- // console.log(Data)
-  //console.log(Data[2].Name)
   console.log( getLocalStorageIndex)
   
   const menu = [
@@ -87,7 +84,7 @@ function LeftSec() {
                   background: "rgba(91, 112, 131, 0.4)",
                   fontSize: "15px",
                   lineHeight: "40px",
-                }}
+                }}   
               >
                 <Tweet />
               </Dialog>
@@ -98,7 +95,7 @@ function LeftSec() {
               picture={
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1675833961~exp=1675834561~hmac=e5dc2b19b095f44445fcca21310a61c13f1928ce7a299179baacd2915e02a04e"
                 />
               }
               text={Data[getLocalStorageIndex].Name}

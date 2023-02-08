@@ -30,12 +30,11 @@ export default function TwitterPost() {
   const setId = useSetRecoilState(forPassingId);
   const [indexForD, setIndexForD] = useState();
   const [newProfile, setNewProfile] = useRecoilState(userProfile);
-  // const [likesCount, setLikesCount] = useState(1000);
   const [requestedProfile, setRequestedProfile] = useState("");
   const [icon, setIcon] = useState("rgb(77, 75, 75)");
   const [isOpen, SetisOpen] = useState(false);
   const [count, setCount] = useState(0);
-  // const setRequestedProfile = useRecoilState(requestedProfileAtom)
+
 
   function handleLike(takeLikes) {
     if (post[takeLikes.Index].inrDcr === false) {
@@ -45,8 +44,6 @@ export default function TwitterPost() {
       post[takeLikes.Index].inrDcr = true;
       post[takeLikes.Index].color = "red";
     }
-
-    //if(post[takeLikes.Index].inrDcr==true)
     else {
       post[takeLikes.Index].likesCount = takeLikes.Data - 1;
 
@@ -74,15 +71,8 @@ export default function TwitterPost() {
     post[indexForD].isOpen = false;
     setCount(count - 1);
   };
-  // useEffect(() => {
-  //   handleClickOpen;
-  // }, [count]);
-
   const handleClickOpen = (index) => {
     post[index].isOpen = true;
-
-    //console.log(post[index].id)
-    // console.log(index)
     setId(index);
     setCount(count + 1);
     setIndexForD(index);
@@ -95,7 +85,6 @@ export default function TwitterPost() {
           <div className={style.wrapper}>
             <div className={style.container1}>
               <div
-                // onClick={handleRedirectProfile}
                 onClick={() =>
                   xyz({
                     name: data.name,
@@ -119,10 +108,8 @@ export default function TwitterPost() {
 
               <div className={style.innercontainer}>
                 <span className={style.text}>
-                  <h3>
-                    {data.name}
-                    <VerifiedIcon style={{ color: "#1DA1F2" }} />
-                  </h3>
+                  <h3>{data.name} <span><VerifiedIcon style={{ color: "#1DA1F2",fontSize:'20px' }} /></span>
+                  </h3> 
                 </span>
                 <h4>{data.handlerName}</h4>
                 <h4>{data.tweetText}</h4>
