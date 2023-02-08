@@ -17,7 +17,7 @@ import {
   userProfile,
   requestedProfileAtom,
   forPassingId,
-} from "../../Recoil/Atom1/Atom";
+} from "../../Recoil/Atom";
 import { Navigate, useNavigate } from "react-router-dom";
 import { tweetPosts } from "../../ConstData/ConstData";
 import TweetReply from "../../Atom/TweetReply/TweetReply";
@@ -80,7 +80,7 @@ export default function TwitterPost() {
 
   return (
     <>
-      {post.map((data, i) => {
+      {post?.map((data, i) => {
         return (
           <div className={style.wrapper}>
             <div className={style.container1}>

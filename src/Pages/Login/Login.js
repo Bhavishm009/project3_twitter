@@ -5,7 +5,7 @@ import { FaTwitter } from "react-icons/fa";
 import Input from "../../Atom/Input/Input";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom,forLocalStorageIndex } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom,forLocalStorageIndex } from "../../Recoil/Atom";
 
 import { Link } from "react-router-dom";
 import { isValidLogin } from "../../helper";
@@ -170,7 +170,7 @@ function Login() {
           )}
           <div className={style.para}>
             <p>
-              Don't have an account?
+              Don't have an account?{" "}
               <Link to="/Register">
                 <span>Sign up</span>
               </Link>

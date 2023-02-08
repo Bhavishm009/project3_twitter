@@ -4,7 +4,7 @@ import style from "./Home.module.css";
 import { useRecoilValue } from "recoil";
 import RightSide from "../../Components/Sections/Right/RightSide";
 import MiddleContainer from "../../Components/Sections/Middle/MiddleContainer";
-import { isLoginAtom } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom } from "../../Recoil/Atom";
 import { useNavigate } from "react-router-dom";
 
 function Home() {

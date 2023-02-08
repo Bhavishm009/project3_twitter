@@ -5,7 +5,7 @@ import style from "./ProfileSection.module.css";
 import WestIcon from "@mui/icons-material/West";
 import CustomButton from "../../../Atom/Button/CustomButton";
 import { useNavigate , useParams} from "react-router-dom";
-import {userProfile,userTweet,userTweetProfile} from "../../../Recoil/Atom1/Atom";
+import {userProfile,userTweet,userTweetProfile} from "../../../Recoil/Atom";
 import { useRecoilValue ,useSetRecoilState} from "recoil";
 import { Avatar } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";

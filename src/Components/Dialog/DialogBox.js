@@ -3,7 +3,7 @@ import CustomButton from "../../Atom/Button/CustomButton";
 import style from "./Dialog.module.css";
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom } from "../../Recoil/Atom";
 
 
 function DialogBox(props) {

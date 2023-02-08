@@ -12,8 +12,10 @@ import Input from "../../Atom/Input/Input";
 import { Link } from "react-router-dom";
 import { Month, Date, Dayy } from "../../Components/Dob/Dob";
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom } from "../../Recoil/Atom1/Atom";
+import { isLoginAtom, forLocalStorageIndex } from "../../Recoil/Atom";
 import { useNavigate } from "react-router-dom";
+
+import  {tweetPosts} from "../../ConstData/ConstData"
 import { nanoid } from "nanoid";
 
 function Register() {
@@ -37,7 +39,7 @@ function Register() {
   const [passwordError, setPasswordError] = useState("");
   const setLoginStatus = useSetRecoilState(isLoginAtom);
   const navigate = useNavigate();
-
+  const setLocalStorageIndex= useSetRecoilState(forLocalStorageIndex)
   function Form() {
     Setform(true);
   }
@@ -69,7 +71,7 @@ function Register() {
   function submitFunction() {
     console.log(date);
     const Data = {
-      id :nanoid(2),
+      id: nanoid(3) ,
       Name: name,
       Phone: phone,
       Email: email,
@@ -85,25 +87,25 @@ function Register() {
       setNameError("please fill correct name input");
       //  flag = 0;
     } else {
-      // flag = 1;
+ 
       setNameError("");
     }
 
     if (toggle === true) {
       if (!isValidMobile(phone)) {
         setPhoneError("please fill correct phone input");
-        // flag = 0;
+     
       } else {
-        // flag = 1;
+ 
         setPhoneError("");
       }
     } else {
       if (!isValidEmail(email)) {
         setEmailError("please fill correct email input");
 
-        //flag = 0;
+       
       } else {
-        // flag = 1;
+     
         setEmailError("");
       }
     }
@@ -158,22 +160,28 @@ function Register() {
 
       if(localStorage.length==0)
       {
+        if(localStorage.key(1) != "constTweetData")
+        localStorage.setItem('constTweetPosts', JSON.stringify(tweetPosts ));
          localStorage.setItem('user', JSON.stringify(data ));
       }
 
      else{
       let oldData = JSON.parse(localStorage.getItem("user"))
-      //console.log(oldData)
-     // localStorage.setItem('user', JSON.stringify([ ...oldData, ...data ]));
-      
+
       localStorage.setItem("user" , JSON.stringify([...oldData,...data]))
-     // localStorage.setItem('user', JSON.stringify(data ));
+      let c=(localStorage.key(1))
+      console.log(c)
+      if(c==null)
+     localStorage.setItem('constTweetPosts', JSON.stringify(tweetPosts ));
+
      }
       // setIncl(incl + 1);
       alert("USER Sucessfully Registered");
       setLoginStatus(true);
       // window.location.assign("/");
-      navigate("/");
+      navigate("/Home");
+      let Data1 = JSON.parse(localStorage.getItem("user"))
+      setLocalStorageIndex(Data1.length-1)
     }
   }
   return (

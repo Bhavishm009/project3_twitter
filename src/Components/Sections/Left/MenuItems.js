@@ -15,7 +15,7 @@ import { Avatar } from "@mui/material";
 import CustomButton2 from "../../../Atom/Button/CustomButton2";
 import DialogBox from "../../Dialog/DialogBox";
 import { useNavigate } from "react-router-dom";
-import {forLocalStorageIndex} from "../../../Recoil/Atom1/Atom"
+import {forLocalStorageIndex} from "../../../Recoil/Atom"
 import { useRecoilValue } from "recoil";
 
 

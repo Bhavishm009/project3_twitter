@@ -9,7 +9,7 @@ import CustomButton from "../Button/CustomButton";
 import ConstData from "../../ConstData/ConstData";
 import { tweetPosts } from "../../ConstData/ConstData";
 import { useRecoilState } from "recoil";
-import { isTweetPost, Personaltweet,forPassingId } from "../../Recoil/Atom1/Atom";
+import { isTweetPost, Personaltweet,forPassingId } from "../../Recoil/Atom";
 // import { Avatar } from "antd";
 
 function TweetReply() {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style2 from "./UserTweet.module.css"
 import { Avatar } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
@@ -7,10 +7,32 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PollIcon from "@mui/icons-material/Poll";
 import UploadIcon from "@mui/icons-material/Upload";
 import VerifiedIcon from '@mui/icons-material/Verified';
-import {Personaltweet} from "../../../../Recoil/Atom1/Atom"
+import {Personaltweet} from "../../../../Recoil/Atom"
 import { useRecoilState } from 'recoil'
+import { SouthAmerica } from '@mui/icons-material';
+
 function UserTweet() {
     const [data,setData]= useRecoilState(Personaltweet)
+    // const [pavan ,setPavan]=useState([{
+    //   name:"ram",
+    //   tweetCount:"SouthAmerica"
+    // }])
+    
+
+    // // useEffect(()=>{
+    //   if(localStorage.getItem("usertweet")){
+    //     console.log("i am pavan from local")
+    //     const UserTweetpost = JSON.parse(localStorage.getItem("usertweet"))
+    //     setData([...pavan , UserTweetpost])
+    //   }else{
+    //     console.log("i am pavan going to local")
+    //     localStorage.setItem("usertweet", JSON.stringify([pavan]));
+    //   }
+
+    // // },[data])
+ 
+
+    
     
     console.log(data);
   return (
@@ -42,10 +64,9 @@ function UserTweet() {
                   borderRadius: "15px",
                 }}
                 alt="picture"
-                src={x.tweetPic}
+                src={x.tweetPic
+                }
               /> 
-              
-              
               {/* : <></> } */}
                     </div>
                     <div className={style2.icons}>

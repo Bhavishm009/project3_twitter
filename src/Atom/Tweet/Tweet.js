@@ -8,7 +8,7 @@ import CustomButton from "../Button/CustomButton";
 import ConstData from "../../ConstData/ConstData";
 import { tweetPosts } from "../../ConstData/ConstData";
 import { useRecoilState ,useRecoilValue} from "recoil";
-import { isTweetPost ,Personaltweet ,forLocalStorageIndex} from "../../Recoil/Atom1/Atom";
+import { isTweetPost ,Personaltweet ,forLocalStorageIndex} from "../../Recoil/Atom";
 import { Avatar } from "antd";
 
 function Tweet() {
