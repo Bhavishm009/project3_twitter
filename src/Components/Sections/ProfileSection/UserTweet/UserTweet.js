@@ -27,7 +27,7 @@ function UserTweet() {
         
                       <div className={style2.innercontainer}>
                         <span className={style2.text}>
-                          <h3>{x.name}<VerifiedIcon style={{color:"blue"}}/></h3>
+                          <h3>{x.name}<VerifiedIcon style={{color:"#1DA1F2"}}/></h3>
                         </span>
                         <p>{x.tweetText}</p>
                       </div>

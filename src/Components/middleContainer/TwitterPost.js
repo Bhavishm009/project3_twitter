@@ -55,7 +55,7 @@ export default function TwitterPost() {
      
      setCountForRender(countForRender+1)
      post[takeLikes.Index].inrDcr=false;
-     post[takeLikes.Index].color="blue"
+     post[takeLikes.Index].color="#1DA1F2"
 
     }
   }
@@ -125,7 +125,7 @@ function handleClickOpen (index) {
                 <span className={style.text}>
                   <h3>
                     {data.name}
-                    <VerifiedIcon style={{ color: "#1DA1F2" }} />
+                    <VerifiedIcon style={{ color: "#1DA1F2",fontSize:'20px',marginLeft:'4px'}} />
                   </h3>
                 </span>
                 <h4>{data.handlerName}</h4>
