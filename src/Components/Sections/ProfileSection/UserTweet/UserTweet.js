@@ -7,15 +7,17 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PollIcon from "@mui/icons-material/Poll";
 import UploadIcon from "@mui/icons-material/Upload";
 import VerifiedIcon from '@mui/icons-material/Verified';
-import {Personaltweet} from "../../../../Recoil/Atom"
+import {Personaltweet} from "../../../../Recoil/Atom1/Atom"
 import { useRecoilState } from 'recoil'
+import { SouthAmerica } from '@mui/icons-material';
 
 function UserTweet() {
     const [data,setData]= useRecoilState(Personaltweet)
+    
     console.log(data);
   return (
     <>
-    {data?.map((x)=>{
+    {data.map((x)=>{
         return(
             <div className={style2.wrapper}>
             <div className={style2.container1}>
@@ -27,15 +29,15 @@ function UserTweet() {
         
                       <div className={style2.innercontainer}>
                         <span className={style2.text}>
-                          <h3>{x.name}<VerifiedIcon style={{color:"#1DA1F2"}}/></h3>
+                          <h3>{x.name}<VerifiedIcon style={{color:"blue"}}/></h3>
                         </span>
                         <p>{x.tweetText}</p>
                       </div>
                     </div>
         
                     <div className={style2.img}>
-     
-              <img
+                    {data.tweetPic ? 
+              <img 
                 style={{
                   width: "30rem",
                   height: "30rem",
@@ -45,29 +47,28 @@ function UserTweet() {
                 src={x.tweetPic
                 }
               /> 
-              {/* : <></> } */}
+              : <></> }
                     </div>
                     <div className={style2.icons}>
-                          <span>
+                          <span className={style2.icons}>
                             {x.tweetCount}
                             <ChatBubbleOutlineIcon />
                           </span>
-                          <span>
+                          <span className={style2.icons}>
                             {x.retweetCount}
                             <SyncIcon />
                           </span>
-                          <span>
+                          <span className={style2.icons}>
                             {x.likesCount}
                             <FavoriteBorderIcon />
                           </span>
-                          <span>
+                          <span className={style2.icons}>
                             {x.viewsCount}
                             <PollIcon />
                           </span>
         
                           <UploadIcon />
                         </div>
-                        <div></div>
           
             </div> 
         )

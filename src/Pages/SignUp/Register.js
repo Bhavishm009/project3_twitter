@@ -12,7 +12,7 @@ import Input from "../../Atom/Input/Input";
 import { Link } from "react-router-dom";
 import { Month, Date, Dayy } from "../../Components/Dob/Dob";
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom, forLocalStorageIndex } from "../../Recoil/Atom";
+import { isLoginAtom, forLocalStorageIndex } from "../../Recoil/Atom1/Atom";
 import { useNavigate } from "react-router-dom";
 import  {tweetPosts} from "../../ConstData/ConstData"
 import { nanoid } from "nanoid";
@@ -84,7 +84,6 @@ function Register() {
     let flag = 0;
     if (!isValidString(name)) {
       setNameError("please fill correct name input");
-      //  flag = 0;
     } else {
  
       setNameError("");
@@ -135,6 +134,7 @@ function Register() {
 
     if (flag == 1) {
       var flagForLs = 0;
+
      if(localStorage.length!=0)
      {
         let k = JSON.parse(localStorage.getItem("user" ));
@@ -172,8 +172,10 @@ function Register() {
      localStorage.setItem('constTweetPosts', JSON.stringify(tweetPosts ));
 
      }
+      // setIncl(incl + 1);
       alert("USER Sucessfully Registered");
       setLoginStatus(true);
+      // window.location.assign("/");
       navigate("/Home");
       let Data1 = JSON.parse(localStorage.getItem("user"))
       setLocalStorageIndex(Data1.length-1)

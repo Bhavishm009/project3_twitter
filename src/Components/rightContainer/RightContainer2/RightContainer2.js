@@ -5,53 +5,54 @@ import CustomButton from "../../../Atom/Button/CustomButton";
 import VerifiedIcon from '@mui/icons-material/Verified';
 
 function Righthomebox2() {
-  const [ show , setShow]= useState(false)
+  // const [ show , setShow]= useState(false)
  
   const [followContainer, setFollowContainer] = useState([
     
     {
       id: 1,
       tag: <i className="far fa-solid fa-badge-check"></i>,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
-      text: "virat",
-      text2: "virat@gmail.com",
+      src: "https://img.freepik.com/premium-vector/brunette-man-avatar-portrait-young-guy-vector-illustration-face_217290-1035.jpg?w=740",
+      text: "John",
+      text2: "John@gmail.com",
     },
     {
       id: 2,
       tag: <i className="fa fa-solid fa-badge-check"></i>,
       src: "https://www.cricketsoccer.com/wp-content/uploads/2020/09/i.jpg",
-      text: "Rohit",
-      text2: "rohits@gmail.com",
+      text: "Tom",
+      text2: "Tom@gmail.com",
     },
     {
       id: 3,
       tag: <i className="fa fa-solid fa-badge-check"></i>,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
-      text: "mahi",
-      text2: "virat@gmail.com",
+      src: "https://img.freepik.com/premium-vector/brunette-man-avatar-portrait-young-guy-vector-illustration-face_217290-1035.jpg?w=740",
+      text: "Jems",
+      text2: "Jems@gmail.com",
     },
     {
       id: 4,
       tag: <i className="fa fa-solid fa-badge-check"></i>,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
-      text: "virat",
-      text2: "virat@gmail.com",
+      src: "https://img.freepik.com/premium-vector/brunette-man-avatar-portrait-young-guy-vector-illustration-face_217290-1035.jpg?w=740",
+      text: "Peter",
+      text2: "Peter@gmail.com",
     },
     {
       id: 5,
       tag: <i className="fa fa-solid fa-badge-check"></i>,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
-      text: "mahi",
-      text2: "virat@gmail.com",
+      src: "https://img.freepik.com/premium-vector/brunette-man-avatar-portrait-young-guy-vector-illustration-face_217290-1035.jpg?w=740",
+      text: "Wish",
+      text2: "Wish@gmail.com",
     },
     {
       id: 6,
       tag: <i className="fa fa-solid fa-badge-check"></i>,
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
-      text: "virat",
-      text2: "virat@gmail.com",
+      src: "https://img.freepik.com/premium-vector/brunette-man-avatar-portrait-young-guy-vector-illustration-face_217290-1035.jpg?w=740",
+      text: "Jenny",
+      text2: "Jenny@gmail.com",
     },
-  ]);
+  ]
+);
   const [trending , setTrendings] = useState(followContainer.slice(0,4))
   const [isShowingAllTrendings , setIsShowingAllTrendings] = useState(false)
 
@@ -64,8 +65,6 @@ function Righthomebox2() {
     });
     setFollowContainer(updatedFollowContainer);
   };
-
- 
 
   // handle seeAll request
   function handleRequestSeeAll () {
@@ -81,12 +80,12 @@ function Righthomebox2() {
       <div className={style.main}>
         {trending.map((menu,id) => {
           return (
-            <div key={id}className={style.wrapper}>
+            <div key={id} className={style.wrapper}>
               <Avatar alt="Remy Sharp" src={menu.src} />
               <div className={style.img}>
                 <h3>
                   {menu.text}
-                  <span style={{ color: "blue" }}> {menu.tag} </span><VerifiedIcon style={{color:"#1DA1F2",fontSize:"15px"}}/>
+                  <span style={{ color: "blue" }}> {menu.tag} </span><VerifiedIcon style={{color: "#1D9BF0" , width:"1rem"}}/>
                 </h3>
                 <h6>{menu.text2}</h6>
               </div>
@@ -113,5 +112,6 @@ function Righthomebox2() {
     </div>
   );
 }
+
 
 export default Righthomebox2;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import style from "./Trends.module.css";
-
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import Dialog2 from "../../Dialog2/Dialog2";
 import CustomButton from "../../../Atom/Button/CustomButton";
 
@@ -11,7 +11,7 @@ const Trends = () => {
       id: 1,
       isNotIntrested: false,
       country: "Trending in India",
-      keyword: "#Ms Dhoni",
+      keyword: "#Tech ",
       totalKeywords: "8000k Tweets",
     },
     {
@@ -30,40 +30,43 @@ const Trends = () => {
     },
     {
       id: 4,
-      isNotIntrested: true,
+      isNotIntrested: false,
       country: "Trending in Sports",
-      keyword: "#ViratKohli",
+      keyword: "#MerryKOm",
       totalKeywords: "2000k Tweets",
     },
     {
       id: 5,
       isNotIntrested: false,
       country: "Trending in Sports",
-      keyword: "#sachin",
+      keyword: "#Sunil Chetri",
       totalKeywords: "2000k Tweets",
     },
   ]);
   const [selectedId, setSelectedId] = useState(null);
-  const [trending , setTrendings] = useState(isNotIntrested.slice(0,2))
-  const [isShowingAllTrendings , setIsShowingAllTrendings] = useState(false)
+  const [trending , setTrendings] = useState(isNotIntrested)
+  const [isShowingAllTrendings, setIsShowingAllTrendings] = useState(false)
   const updateId = (id) => setSelectedId(id);
-
+  const[data,setData]=useState([...trending])
   const HandleClick = () => {
     const tempArr = [];
-    isNotIntrested.forEach((el) => {
+    trending.forEach((el) => {
       if (el.id !== selectedId) {
         tempArr.push(el);
       }
     });
-    setIsNotIntrested(tempArr);
+    setTrendings(tempArr);
+    setData(tempArr)
   };
+
+
 
   function handleRequestSeeAll () {
     setIsShowingAllTrendings(!isShowingAllTrendings)
     if(isShowingAllTrendings) {
-       return setTrendings(isNotIntrested.slice(0,2))
-    }
-    setTrendings(isNotIntrested)
+       return setTrendings(trending.slice(0,3))
+    }else
+    setTrendings(data)
 }
 
   return (
@@ -72,15 +75,16 @@ const Trends = () => {
         <div className={style.keyword__heading}>
           <h4 className={style.heading4}>What's happening</h4>
         </div>
-        {trending.map((keyword,id) => {
+        {trending.map((keyword) => {
           return (
-            <div key={id}
+            <div
+            key={keyword.id}
               className={style.container}
               onClick={() => {
                 updateId(keyword.id);
               }}
             >
-              <div >
+              <div key={keyword.id}>
                 <div className={style.country}>{keyword.country}</div>
                 <div className={style.keyword__name}>
                   <strong>{keyword.keyword}</strong>
@@ -90,7 +94,21 @@ const Trends = () => {
                 </div>
               </div>
               <div className={style.btn}>
-                <Dialog2 onClick={HandleClick} />
+              <Dialog2
+                  onClick={HandleClick}
+                  title={
+                    <div>
+                      <SentimentVeryDissatisfiedIcon /> This trend is harmful or
+                      spammy
+                    </div>
+                  }
+                  content={
+                    <p>
+                      <SentimentVeryDissatisfiedIcon />
+                      Is not Intrested
+                    </p>
+                  }
+                />
               </div>
             </div>
           );

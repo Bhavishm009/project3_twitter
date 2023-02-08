@@ -17,7 +17,7 @@ import {
   userProfile,
   requestedProfileAtom,
   forPassingId
-} from "../../Recoil/Atom";
+} from "../../Recoil/Atom1/Atom";
 import {  useNavigate } from "react-router-dom";
 import { tweetPosts } from "../../ConstData/ConstData";
 import TweetReply from "../../Atom/TweetReply/TweetReply";
@@ -49,13 +49,15 @@ export default function TwitterPost() {
     console.log(post)
     
     }
+   
+    //if(post[takeLikes.Index].inrDcr==true)
     else
     {
      post[takeLikes.Index].likesCount=takeLikes.Data-1
      
      setCountForRender(countForRender+1)
      post[takeLikes.Index].inrDcr=false;
-     post[takeLikes.Index].color="#1DA1F2"
+     post[takeLikes.Index].color="rgb(60,60,60)"
 
     }
   }
@@ -95,7 +97,7 @@ function handleClickOpen (index) {
 
   return (
     <>
-      {post?.map((data,i) => {
+      {post.map((data,i) => {
         return (
           <div key={i} className={style.wrapper}>
             <div className={style.container1}>
@@ -125,7 +127,7 @@ function handleClickOpen (index) {
                 <span className={style.text}>
                   <h3>
                     {data.name}
-                    <VerifiedIcon style={{ color: "#1DA1F2",fontSize:'20px',marginLeft:'4px'}} />
+                    <VerifiedIcon style={{ color: "#1D9BF0" , width:"1rem"}} />
                   </h3>
                 </span>
                 <h4>{data.handlerName}</h4>
@@ -134,7 +136,7 @@ function handleClickOpen (index) {
             </div>
 
             <div className={style.img}>
-              {data?.tweetPic ? 
+              {data.tweetPic ? 
               <img
                 style={{
                   width: "30rem",

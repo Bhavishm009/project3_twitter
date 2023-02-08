@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { userTweet, forPassingId,forLocalStorageIndex } from "../../../Recoil/Atom";
+import { userTweet, forPassingId,forLocalStorageIndex } from "../../../Recoil/Atom1/Atom";
 import { Avatar } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import SyncIcon from "@mui/icons-material/Sync";
@@ -95,19 +95,19 @@ function Tweetpost() {
                 </div>
               </div>
               <div className={style2.icons}>
-                <span>
+                <span className={style2.icons}>
                   {tweetPostData.tweetCount}
                   <ChatBubbleOutlineIcon />
                 </span>
-                <span>
+                <span className={style2.icons}>
                   {tweetPostData.retweetCount}
                   <SyncIcon />
                 </span>
-                <span>
+                <span className={style2.icons}>
                   {tweetPostData.likesCount}
                   <FavoriteBorderIcon />
                 </span>
-                <span>
+                <span className={style2.icons}>
                   {tweetPostData.viewsCount}
                   <PollIcon />
                 </span>

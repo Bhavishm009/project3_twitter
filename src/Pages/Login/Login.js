@@ -5,7 +5,7 @@ import { FaTwitter } from "react-icons/fa";
 import Input from "../../Atom/Input/Input";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { isLoginAtom,forLocalStorageIndex } from "../../Recoil/Atom";
+import { isLoginAtom,forLocalStorageIndex } from "../../Recoil/Atom1/Atom";
 
 import { Link } from "react-router-dom";
 import { isValidLogin } from "../../helper";

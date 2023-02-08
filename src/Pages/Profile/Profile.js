@@ -4,16 +4,13 @@ import ProfileSection from '../../Components/Sections/ProfileSection/ProfileSect
 import RightSide from '../../Components/Sections/Right/RightSide'
 import style from "./Profile.module.css"
 import { useRecoilValue } from "recoil";
-import { isLoginAtom } from "../../Recoil/Atom";
+import { isLoginAtom } from "../../Recoil/Atom1/Atom";
 import { useNavigate } from "react-router-dom";
 function Profile() {
 
     const isUserLoggedIn = useRecoilValue(isLoginAtom);
     const nevigate = useNavigate();
-
-    
-
-
+  
     useEffect(() => {
       if (!isUserLoggedIn) {
         nevigate("/");
