@@ -10,7 +10,10 @@ function Profile() {
 
     const isUserLoggedIn = useRecoilValue(isLoginAtom);
     const nevigate = useNavigate();
-  
+
+    
+
+
     useEffect(() => {
       if (!isUserLoggedIn) {
         nevigate("/");

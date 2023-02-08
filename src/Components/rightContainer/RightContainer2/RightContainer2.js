@@ -12,42 +12,42 @@ function Righthomebox2() {
     {
       id: 1,
       tag: <i class="far fa-solid fa-badge-check"></i>,
-      src: "https://img.freepik.com/premium-psd/3d-illustration-business-man-with-glasses_23-2149436193.jpg?w=740",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "virat",
       text2: "virat@gmail.com",
     },
     {
       id: 2,
       tag: <i class="fa fa-solid fa-badge-check"></i>,
-      src: "https://img.freepik.com/premium-psd/3d-illustration-business-man-with-glasses_23-2149436193.jpg?w=740",      
+      src: "https://www.cricketsoccer.com/wp-content/uploads/2020/09/i.jpg",
       text: "Rohit",
       text2: "rohits@gmail.com",
     },
     {
       id: 3,
       tag: <i class="fa fa-solid fa-badge-check"></i>,
-      src: "https://img.freepik.com/premium-psd/3d-illustration-business-man-with-glasses_23-2149436193.jpg?w=740",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "mahi",
       text2: "virat@gmail.com",
     },
     {
       id: 4,
       tag: <i class="fa fa-solid fa-badge-check"></i>,
-      src: "https://img.freepik.com/premium-psd/3d-illustration-business-man-with-glasses_23-2149436193.jpg?w=740",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "virat",
       text2: "virat@gmail.com",
     },
     {
       id: 5,
       tag: <i class="fa fa-solid fa-badge-check"></i>,
-      src: "https://img.freepik.com/premium-psd/3d-illustration-business-man-with-glasses_23-2149436193.jpg?w=740",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "mahi",
       text2: "virat@gmail.com",
     },
     {
       id: 6,
       tag: <i class="fa fa-solid fa-badge-check"></i>,
-      src: "https://img.freepik.com/premium-psd/3d-illustration-business-man-with-glasses_23-2149436193.jpg?w=740",
+      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjj_oz7crwHtUQj0jJuvLq-ILk5oikP_3FFL-mDJqk&s",
       text: "virat",
       text2: "virat@gmail.com",
     },
@@ -86,7 +86,7 @@ function Righthomebox2() {
               <div className={style.img}>
                 <h3>
                   {menu.text}
-                  <span style={{ color: "blue" }}> {menu.tag} </span><VerifiedIcon style={{color:"#1DA1F2",fontSize:"15px"}}/>
+                  <span style={{ color: "blue" }}> {menu.tag} </span><VerifiedIcon style={{color:"blue",fontSize:"20px"}}/>
                 </h3>
                 <h6>{menu.text2}</h6>
               </div>

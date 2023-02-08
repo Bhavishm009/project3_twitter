@@ -14,7 +14,6 @@ import { Month, Date, Dayy } from "../../Components/Dob/Dob";
 import { useSetRecoilState } from "recoil";
 import { isLoginAtom, forLocalStorageIndex } from "../../Recoil/Atom";
 import { useNavigate } from "react-router-dom";
-
 import  {tweetPosts} from "../../ConstData/ConstData"
 import { nanoid } from "nanoid";
 
@@ -136,8 +135,6 @@ function Register() {
 
     if (flag == 1) {
       var flagForLs = 0;
-     // for (var i = 0; i < localStorage.length; i++) 
-
      if(localStorage.length!=0)
      {
         let k = JSON.parse(localStorage.getItem("user" ));
@@ -175,10 +172,8 @@ function Register() {
      localStorage.setItem('constTweetPosts', JSON.stringify(tweetPosts ));
 
      }
-      // setIncl(incl + 1);
       alert("USER Sucessfully Registered");
       setLoginStatus(true);
-      // window.location.assign("/");
       navigate("/Home");
       let Data1 = JSON.parse(localStorage.getItem("user"))
       setLocalStorageIndex(Data1.length-1)

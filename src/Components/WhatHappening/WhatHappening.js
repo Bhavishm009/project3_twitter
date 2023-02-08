@@ -8,8 +8,9 @@ import CustomButton from "../../Atom/Button/CustomButton";
 import { tweetPosts } from "../../ConstData/ConstData";
 import { useEffect } from "react";
 import { useRecoilState,useRecoilValue, useSetRecoilState } from "recoil";
-import { isTweetPost,Personaltweet,forLocalStorageIndex,countForTweet } from "../../Recoil/Atom";
 
+import { isTweetPost,Personaltweet,forLocalStorageIndex,countForTweet } from "../../Recoil/Atom";
+import { json } from "react-router-dom";
 
 function WhatHappening() {
   let Data = JSON.parse(localStorage.getItem("user"));
@@ -20,7 +21,7 @@ function WhatHappening() {
   const getLocalStorageIndex=useRecoilValue(forLocalStorageIndex)
   const inputRef = useRef(null);
   const disabled=(!storeArray)
-
+ // const setCountForRecoil=useSetRecoilState(countForTweet)
 
   const Icons = [
     { id: 0, icon: <FaGlobe /> },
@@ -52,7 +53,7 @@ function WhatHappening() {
     reader.readAsDataURL(e.target.files[0]);
   }
   function handleNewTweet() {
-
+   // localStorage.setItem("Tweet",JSON.stringify(storeArray))
     let newObj = {
       name: Data[getLocalStorageIndex].Name,
       handlerName:  Data[getLocalStorageIndex].Email,
@@ -69,6 +70,8 @@ function WhatHappening() {
     };
     let oldData = JSON.parse(localStorage.getItem("constTweetPosts"))
     localStorage.setItem("constTweetPosts" , JSON.stringify([{...newObj},...oldData]))
+
+   // tweetPosts.unshift(newObj);
     setLoginStatus(loginStatus + 1);
     setImage("");
     setStoreArray("");

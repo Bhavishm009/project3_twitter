@@ -9,35 +9,13 @@ import UploadIcon from "@mui/icons-material/Upload";
 import VerifiedIcon from '@mui/icons-material/Verified';
 import {Personaltweet} from "../../../../Recoil/Atom"
 import { useRecoilState } from 'recoil'
-import { SouthAmerica } from '@mui/icons-material';
 
 function UserTweet() {
     const [data,setData]= useRecoilState(Personaltweet)
-    // const [pavan ,setPavan]=useState([{
-    //   name:"ram",
-    //   tweetCount:"SouthAmerica"
-    // }])
-    
-
-    // // useEffect(()=>{
-    //   if(localStorage.getItem("usertweet")){
-    //     console.log("i am pavan from local")
-    //     const UserTweetpost = JSON.parse(localStorage.getItem("usertweet"))
-    //     setData([...pavan , UserTweetpost])
-    //   }else{
-    //     console.log("i am pavan going to local")
-    //     localStorage.setItem("usertweet", JSON.stringify([pavan]));
-    //   }
-
-    // // },[data])
- 
-
-    
-    
     console.log(data);
   return (
     <>
-    {data.map((x)=>{
+    {data?.map((x)=>{
         return(
             <div className={style2.wrapper}>
             <div className={style2.container1}>
@@ -56,7 +34,7 @@ function UserTweet() {
                     </div>
         
                     <div className={style2.img}>
-                    {/* {data.tweetPic ?  */}
+     
               <img
                 style={{
                   width: "30rem",
@@ -89,6 +67,7 @@ function UserTweet() {
         
                           <UploadIcon />
                         </div>
+                        <div></div>
           
             </div> 
         )

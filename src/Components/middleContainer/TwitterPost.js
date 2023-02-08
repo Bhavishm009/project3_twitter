@@ -16,71 +16,86 @@ import {
   isTweetPost,
   userProfile,
   requestedProfileAtom,
-  forPassingId,
+  forPassingId
 } from "../../Recoil/Atom";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { tweetPosts } from "../../ConstData/ConstData";
 import TweetReply from "../../Atom/TweetReply/TweetReply";
 
 export default function TwitterPost() {
-  const [post, setPost] = useState(tweetPosts);
+  const [post, setPost] = useState(JSON.parse(localStorage.getItem("constTweetPosts")));
   const nevigate = useNavigate();
-  const [countForRender, setCountForRender] = useState(0);
+  const[countForRender, setCountForRender]=useState(0)
   const [newPost, setNewPost] = useRecoilState(isTweetPost);
-  const setId = useSetRecoilState(forPassingId);
-  const [indexForD, setIndexForD] = useState();
+  const setId=useSetRecoilState(forPassingId);
+  const[indexForD,setIndexForD]=useState()
   const [newProfile, setNewProfile] = useRecoilState(userProfile);
-  const [requestedProfile, setRequestedProfile] = useState("");
-  const [icon, setIcon] = useState("rgb(77, 75, 75)");
-  const [isOpen, SetisOpen] = useState(false);
-  const [count, setCount] = useState(0);
+  const[newindex,setNewIndex]=useState()
+
+  const[count,setCount]=useState(0)
+  
 
 
   function handleLike(takeLikes) {
-    if (post[takeLikes.Index].inrDcr === false) {
-      post[takeLikes.Index].likesCount = takeLikes.Data + 1;
-
-      setCountForRender(countForRender + 1);
-      post[takeLikes.Index].inrDcr = true;
-      post[takeLikes.Index].color = "red";
+    console.log(post[takeLikes.Index])
+    
+    if(post[takeLikes.Index].inrDcr===false)
+    {
+     post[takeLikes.Index].likesCount=takeLikes.Data+1
+     
+     setCountForRender(countForRender+1);
+    post[takeLikes.Index].inrDcr=true;
+    post[takeLikes.Index].color="red"
+    console.log(post)
+    
     }
-    else {
-      post[takeLikes.Index].likesCount = takeLikes.Data - 1;
+    else
+    {
+     post[takeLikes.Index].likesCount=takeLikes.Data-1
+     
+     setCountForRender(countForRender+1)
+     post[takeLikes.Index].inrDcr=false;
+     post[takeLikes.Index].color="blue"
 
-      setCountForRender(countForRender + 1);
-      post[takeLikes.Index].inrDcr = false;
-      post[takeLikes.Index].color = "#1DA1F2";
     }
   }
 
   useEffect(() => {
     fetchData();
   }, [newPost]);
-
+console.log(newPost)
   function fetchData() {
-    setPost(tweetPosts);
+    setPost(JSON.parse(localStorage.getItem("constTweetPosts")));
   }
 
   function xyz(dataName) {
     setNewProfile(dataName);
     const paramsValue = dataName.handlerName.replace("@", "");
     nevigate(`/profile2/${paramsValue}`);
-    setId(dataName.index);
+    setId(dataName.index)
   }
   const handleClose = () => {
-    post[indexForD].isOpen = false;
-    setCount(count - 1);
-  };
-  const handleClickOpen = (index) => {
-    post[index].isOpen = true;
-    setId(index);
-    setCount(count + 1);
-    setIndexForD(index);
+    post[indexForD].isOpen=false
+    setCount(count-1)
+
+  }
+  useEffect(()=>{handleClickOpen1()},[count])
+  
+  function handleClickOpen1()
+  {
+    setId(newindex);
+    setIndexForD(newindex)
+  }
+function handleClickOpen (index) {
+ 
+  post[index].isOpen=true
+   setCount(count+1)
+   setNewIndex(index)
   };
 
   return (
     <>
-      {post?.map((data, i) => {
+      {post?.map((data,i) => {
         return (
           <div className={style.wrapper}>
             <div className={style.container1}>
@@ -99,7 +114,7 @@ export default function TwitterPost() {
                     followers: data.followers,
                     followings: data.followings,
                     tweets: data.tweets,
-                    index: i,
+                    index:i
                   })
                 }
               >
@@ -108,8 +123,10 @@ export default function TwitterPost() {
 
               <div className={style.innercontainer}>
                 <span className={style.text}>
-                  <h3>{data.name} <span><VerifiedIcon style={{ color: "#1DA1F2",fontSize:'20px' }} /></span>
-                  </h3> 
+                  <h3>
+                    {data.name}
+                    <VerifiedIcon style={{ color: "blue" }} />
+                  </h3>
                 </span>
                 <h4>{data.handlerName}</h4>
                 <h4>{data.tweetText}</h4>
@@ -117,59 +134,47 @@ export default function TwitterPost() {
             </div>
 
             <div className={style.img}>
-              {data.tweetPic ? (
-                <img
-                  style={{
-                    width: "30rem",
-                    height: "30rem",
-                    borderRadius: "15px",
-                  }}
-                  alt="picture"
-                  src={data.tweetPic}
-                />
-              ) : (
-                <></>
-              )}
+              {data?.tweetPic ? 
+              <img
+                style={{
+                  width: "30rem",
+                  height: "30rem",
+                  borderRadius: "15px",
+                }}
+                alt="picture"
+                src={data.tweetPic}
+              /> : <></> }
             </div>
             <div className={style.icons}>
               <div className={style.icons}>
                 {data.tweetCount}
-                <ChatBubbleOutlineIcon onClick={() => handleClickOpen(i)} />
+                <ChatBubbleOutlineIcon onClick={(()=>handleClickOpen(i))} />
                 <div className={style.Dialog}>
                   {console.log(data.isOpen)}
-                  <Dialog
-                    open={data.isOpen}
-                    onClose={handleClose}
-                    style={{
-                      background: "rgba(91, 112, 131, 0.4)",
-                      fontSize: "15px",
-                      lineHeight: "40px",
-                    }}
-                  >
-                    <TweetReply />
-                  </Dialog>
-                </div>
+              <Dialog
+                open={data.isOpen}
+                onClose={handleClose}
+                style={{
+                  background: "rgba(91, 112, 131, 0.4)",
+                  fontSize: "15px",
+                  lineHeight: "40px",
+                }}
+              >
+                <TweetReply />
+              </Dialog>
+            </div>
               </div>
-
+            
               <div className={style.icons}>
-                {data.retweetCount}
-                <SyncIcon />
-              </div>
-              <div className={style.icons}>
-                <p
-                  style={{
-                    border: "none",
-                    background: "none",
-                    color: " rgb(102, 102, 192)",
-                  }}
-                  onClick={() =>
-                    handleLike({ Data: data.likesCount, Index: i })
-                  }
-                >
-                  <FavoriteBorderIcon style={{ color: data.color }} />
-                </p>
-                {data.likesCount}
-              </div>
+                    {data.retweetCount}
+                    <SyncIcon />
+                  </div>
+                   <div  className={style.icons}>
+                <p style={{border:'none',background:'none',color:' rgb(102, 102, 192)'}}
+                   onClick={(()=>handleLike({Data:data.likesCount ,Index:i}))}><FavoriteBorderIcon style={{color:data.color}}/>
+                   </p>
+                   {data.likesCount}
+                   </div>
               <div className={style.icons}>
                 {data.viewsCount}
                 <PollIcon />
