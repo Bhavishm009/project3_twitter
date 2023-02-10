@@ -54,9 +54,7 @@ function TweetReply() {
     let newObj1={
       tweetComment:storeArray
     }
-    //post[index].tweetComment=([...post[index].tweetComment,newObj1])
-    // console.log(storeArray)
-    //localStorage.setItem("const tweetPosts[2].tweetComment" , "ghyy")
+
    let k=JSON.parse(localStorage.getItem("constTweetPosts"))
    console.log(k)
    k[index].tweetComment=([...k[index].tweetComment,newObj1])
@@ -108,7 +106,7 @@ function TweetReply() {
                 );
               })}
               <CustomButton
-                buttonText="Reply000"
+                buttonText="Add Comment"
                 btnNext={handleNewTweet}
                 customCss={style.button}
               />
