@@ -9,7 +9,6 @@ import PollIcon from "@mui/icons-material/Poll";
 import UploadIcon from "@mui/icons-material/Upload";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import style2 from "./Tweetpost.module.css";
-import { tweetPosts } from "../../../ConstData/ConstData";
 import { useState } from "react";
 function Tweetpost() {
   const [post, setPost] = useState(JSON.parse(localStorage.getItem("constTweetPosts")));
@@ -18,8 +17,6 @@ function Tweetpost() {
 
   const tweetPostData = useRecoilValue(userTweet);
   const index = useRecoilValue(forPassingId);
-  // console.log(post[index].tweetComment[0].tweetComment)
-  //console.log(index)
   return (
     <>
       <div className={style2.wrapper}>
@@ -32,7 +29,7 @@ function Tweetpost() {
             <span className={style2.text}>
               <h3>
                 {tweetPostData.name}
-                <VerifiedIcon style={{ color: "blue" }} />
+                <VerifiedIcon style={{ color: "#1D9BF0" , width:"1rem" }} />
               </h3>
             </span>
             <p>{tweetPostData.tweetText}</p>
@@ -41,7 +38,7 @@ function Tweetpost() {
 
         <div className={style2.img}>
           <img
-            style={{ width: "30rem", height: "30rem", borderRadius: "15px" }}
+           className={style2.img1}
             alt="picture"
             src={tweetPostData.tweetPic}
           />
@@ -85,7 +82,7 @@ function Tweetpost() {
                     <span className={style2.text}>
                       <h3>
                         {Data[getLocalStorageIndex].Name}
-                        <VerifiedIcon style={{ color: "#1D9BF0", fontSize: "1.5rem" }} />
+                        <VerifiedIcon style={{ color: "#1D9BF0", fontSize: "1rem" }} />
                       </h3>
                     </span>
                     <p>{data.tweetComment}</p>
@@ -129,8 +126,8 @@ function Tweetpost() {
           <div className={style2.innercontainer}>
             <span className={style2.text}>
               <h3>
-                Elon Musk
-                <VerifiedIcon style={{ color: "blue" }} />
+               Elon Musk
+                <VerifiedIcon style={{ color: "#1D9BF0" , width:"1rem" }} />
               </h3>
             </span>
             <p>{tweetPostData.tweetText}</p>

@@ -38,31 +38,44 @@ function UserTweet() {
                     <div className={style2.img}>
                     {data.tweetPic ? 
               <img 
-                style={{
-                  width: "30rem",
-                  height: "30rem",
-                  borderRadius: "15px",
-                }}
+              className={style2.img1}
+                // style={{
+                //   width: "30rem",
+                //   height: "30rem",
+                //   borderRadius: "15px",
+                // }}
                 alt="picture"
                 src={x.tweetPic
                 }
               /> 
-              : <></> }
+              : <>
+                <img 
+                // style={{
+                //   width: "30rem",
+                //   height: "30rem",
+                //   borderRadius: "15px",
+                // }}
+                className={style2.img1}
+                alt="picture"
+                src={x.tweetPic
+                }
+              /> 
+              </> }
                     </div>
                     <div className={style2.icons}>
-                          <span className={style2.icons}>
+                          <span>
                             {x.tweetCount}
                             <ChatBubbleOutlineIcon />
                           </span>
-                          <span className={style2.icons}>
+                          <span>
                             {x.retweetCount}
                             <SyncIcon />
                           </span>
-                          <span className={style2.icons}>
+                          <span>
                             {x.likesCount}
                             <FavoriteBorderIcon />
                           </span>
-                          <span className={style2.icons}>
+                          <span>
                             {x.viewsCount}
                             <PollIcon />
                           </span>
@@ -80,5 +93,3 @@ function UserTweet() {
 }
 
 export default UserTweet
-
-

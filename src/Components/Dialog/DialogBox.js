@@ -1,4 +1,3 @@
-// import Dialog from "@mui/material/Dialog";
 import CustomButton from "../../Atom/Button/CustomButton";
 import style from "./Dialog.module.css";
 import { Button, Popover } from "antd";
