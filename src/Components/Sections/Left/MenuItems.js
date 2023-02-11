@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
 import { FaHouseUser, FaHashtag} from "react-icons/fa";
-// import { GrNotification } from "react-icons/gr";
 import { BsBookmark, BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbFileText } from "react-icons/tb";
@@ -13,12 +12,10 @@ import style from "./MenuItem.module.css";
 import Dialog from "@mui/material/Dialog";
 import { VscBellDot } from "react-icons/vsc";
 import { Avatar } from "@mui/material";
-// import CustomButton2 from "../../../Atom/Button/CustomButton2";
 import { useNavigate } from "react-router-dom";
 import {forLocalStorageIndex} from "../../../Recoil/Atom"
 import { useRecoilValue } from "recoil";
 import Dialog2 from "../../Dialog2/Dialog2";
-// import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import Card from "../../../Atom/Card/card";
 
 
