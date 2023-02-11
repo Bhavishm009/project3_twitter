@@ -7,16 +7,29 @@
   /* border-bottom: 1px rgb(60, 60, 60) solid; */
   padding: 0.93rem 1.25rem;
 }
+.Profile{
+  color:blue;
+  background-color: black;
+}
 .drawer{
   color: white;
   font-weight: bold;
   display: flex;
-  margin-top: ;
+  margin-top: 2rem;
+  padding-left: 1rem;
+  font-size: 1.2rem;
 
 }
-.menuDot{
-  color: aliceblue;
+.NAME{
+  margin-left: 2rem;
 }
+.drawer::title{
+  background-color: black;
+}
+.menuDot{
+  margin-top: 0.2rem;
+}
+
 .feed__header h2 {
   font-size: 1.25rem;
   font-weight: 50rem;
