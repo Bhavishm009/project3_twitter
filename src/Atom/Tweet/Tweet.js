@@ -10,8 +10,9 @@ import { tweetPosts } from "../../ConstData/ConstData";
 import { useRecoilState ,useRecoilValue} from "recoil";
 import { isTweetPost ,Personaltweet ,forLocalStorageIndex} from "../../Recoil/Atom";
 import { Avatar } from "antd";
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-function Tweet() {
+function Tweet(props) {
   let Data = JSON.parse(localStorage.getItem("user"));
   const [personal, setPersonal ] = useRecoilState(Personaltweet);
   const [isOpen, setIsOpen] = useState(false);
@@ -48,9 +49,8 @@ function Tweet() {
     };
     reader.readAsDataURL(e.target.files[0]);
   }
-  function handleNewTweet() {
-    setIsOpen(true);
-
+  function handleNewTweet({SetisOpen}) {
+    setIsOpen(false)
     let newObj = {
       name: Data[getLocalStorageIndex].Name,
       handlerName:  Data[getLocalStorageIndex].Email,
@@ -79,7 +79,7 @@ function Tweet() {
     <>
       <div className={style.parentContainer}>
         <div className={style.main}>
-          {/* <button onClick={Handleclose}>X</button> */}
+         <button style={{background:'none', color:'white'}} onClick={props.handleClose}><HighlightOffIcon/></button> 
           <div className={style.wrapper}>
             <Avatar></Avatar>
             <textarea
@@ -110,12 +110,11 @@ function Tweet() {
                   </div>
                 );
               })}
-                 <CustomButton
-                 disable={disabled}
+            <CustomButton
+            disable={disabled}
             buttonText="Tweet"
             btnNext={handleNewTweet}
-            customCss={style.button}
-          />
+            customCss={style.button}/>
             </div>
           </div>
        

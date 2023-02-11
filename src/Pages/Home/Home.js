@@ -6,6 +6,7 @@ import RightSide from "../../Components/Sections/Right/RightSide";
 import MiddleContainer from "../../Components/Sections/Middle/MiddleContainer";
 import { isLoginAtom } from "../../Recoil/Atom";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../Components/Navbar/Navbar";
 
 function Home() {
   const isUserLoggedIn = useRecoilValue(isLoginAtom);
@@ -23,6 +24,7 @@ function Home() {
         <MenuItems />
       </div>
       <div className={style.middleContainer}>
+        {/* <Navbar className={style.Navbar}/> */}
         <MiddleContainer />
       </div>
       <div className={style.rightContainer}>

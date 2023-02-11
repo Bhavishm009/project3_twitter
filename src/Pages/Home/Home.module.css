@@ -7,8 +7,9 @@
     height: 100%;
    
 }
-body{
-    background-color: black;
+.Navbar{
+    position: fixed;
+    backdrop-filter: blur(5px);   
 }
 .middleContainer{
     width: 40%;
@@ -20,3 +21,56 @@ body{
 /* .main::-webkit-scrollbar{
     display: none;
 } */
+@media only screen and (max-width:1280px){
+    .container{
+        width: 12%;
+    }
+    .middleContainer{
+        width: 44%;
+    }
+    .rightContainer{
+        width:30%;
+        
+    }
+   
+
+  }
+  @media only screen and (max-width:1005px){
+    .container{
+        width: 12%;
+    }
+    .middleContainer{
+        width: 87%;
+    }
+    .rightContainer{
+        display: none;
+     }
+
+  }
+
+ body{
+    background-color: black;
+ }
+
+
+
+/* @media only screen and (max-width:1024px){
+   
+    .middleContainer{
+        width: 100%;
+    }
+} */
+
+
+@media only screen and (max-width:500px){
+    .rightContainer{
+        display: none;
+     }
+     .middleContainer{
+         width: 100%;
+     }
+     .container{
+       display: none;
+    }
+
+}

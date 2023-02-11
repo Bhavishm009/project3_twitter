@@ -1,7 +1,5 @@
 import React from "react";
-
 import style from "./TwitterPost.module.css";
-
 import { Avatar } from "@mui/material";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import SyncIcon from "@mui/icons-material/Sync";
@@ -18,46 +16,42 @@ import {
   requestedProfileAtom,
   forPassingId
 } from "../../Recoil/Atom";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { tweetPosts } from "../../ConstData/ConstData";
 import TweetReply from "../../Atom/TweetReply/TweetReply";
 
 export default function TwitterPost() {
   const [post, setPost] = useState(JSON.parse(localStorage.getItem("constTweetPosts")));
   const nevigate = useNavigate();
-  const[countForRender, setCountForRender]=useState(0)
+  const [countForRender, setCountForRender] = useState(0)
   const [newPost, setNewPost] = useRecoilState(isTweetPost);
-  const setId=useSetRecoilState(forPassingId);
-  const[indexForD,setIndexForD]=useState()
+  const setId = useSetRecoilState(forPassingId);
+  const [indexForD, setIndexForD] = useState()
   const [newProfile, setNewProfile] = useRecoilState(userProfile);
-  const[newindex,setNewIndex]=useState()
+  const [newindex, setNewIndex] = useState()
 
-  const[count,setCount]=useState(0)
-  
+  const [count, setCount] = useState(0)
+
 
 
   function handleLike(takeLikes) {
     console.log(post[takeLikes.Index])
-    
-    if(post[takeLikes.Index].inrDcr===false)
-    {
-     post[takeLikes.Index].likesCount=takeLikes.Data+1
-     
-     setCountForRender(countForRender+1);
-    post[takeLikes.Index].inrDcr=true;
-    post[takeLikes.Index].color="red"
-    console.log(post)
-    
+
+    if (post[takeLikes.Index].inrDcr === false) {
+      post[takeLikes.Index].likesCount = takeLikes.Data + 1
+
+      setCountForRender(countForRender + 1);
+      post[takeLikes.Index].inrDcr = true;
+      post[takeLikes.Index].color = "red"
+      console.log(post)
+
     }
-   
-    //if(post[takeLikes.Index].inrDcr==true)
-    else
-    {
-     post[takeLikes.Index].likesCount=takeLikes.Data-1
-     
-     setCountForRender(countForRender+1)
-     post[takeLikes.Index].inrDcr=false;
-     post[takeLikes.Index].color="rgb(60,60,60)"
+    else {
+      post[takeLikes.Index].likesCount = takeLikes.Data - 1
+
+      setCountForRender(countForRender + 1)
+      post[takeLikes.Index].inrDcr = false;
+      post[takeLikes.Index].color = "rgb(60,60,60)"
 
     }
   }
@@ -65,7 +59,7 @@ export default function TwitterPost() {
   useEffect(() => {
     fetchData();
   }, [newPost]);
-console.log(newPost)
+  console.log(newPost)
   function fetchData() {
     setPost(JSON.parse(localStorage.getItem("constTweetPosts")));
   }
@@ -77,27 +71,26 @@ console.log(newPost)
     setId(dataName.index)
   }
   const handleClose = () => {
-    post[indexForD].isOpen=false
-    setCount(count-1)
+    post[indexForD].isOpen = false
+    setCount(count - 1)
 
   }
-  useEffect(()=>{handleClickOpen1()},[count])
-  
-  function handleClickOpen1()
-  {
+  useEffect(() => { handleClickOpen1() }, [count])
+
+  function handleClickOpen1() {
     setId(newindex);
     setIndexForD(newindex)
   }
-function handleClickOpen (index) {
- 
-  post[index].isOpen=true
-   setCount(count+1)
-   setNewIndex(index)
+  function handleClickOpen(index) {
+
+    post[index].isOpen = true
+    setCount(count + 1)
+    setNewIndex(index)
   };
 
   return (
     <>
-      {post.map((data,i) => {
+      {post.map((data, i) => {
         return (
           <div key={i} className={style.wrapper}>
             <div className={style.container1}>
@@ -116,7 +109,7 @@ function handleClickOpen (index) {
                     followers: data.followers,
                     followings: data.followings,
                     tweets: data.tweets,
-                    index:i
+                    index: i
                   })
                 }
               >
@@ -127,7 +120,7 @@ function handleClickOpen (index) {
                 <span className={style.text}>
                   <h3>
                     {data.name}
-                    <VerifiedIcon style={{ color: "#1D9BF0" , width:"1rem"}} />
+                    <VerifiedIcon style={{ color: "#1D9BF0", width: "1rem" }} />
                   </h3>
                 </span>
                 <h4>{data.handlerName}</h4>
@@ -136,47 +129,43 @@ function handleClickOpen (index) {
             </div>
 
             <div className={style.img}>
-              {data.tweetPic ? 
-              <img
-                style={{
-                  width: "30rem",
-                  height: "30rem",
-                  borderRadius: "15px",
-                }}
-                alt="picture"
-                src={data.tweetPic}
-              /> : <></> }
+              {data.tweetPic ?
+                <img
+                  className={style.img1}
+                  alt="picture"
+                  src={data.tweetPic}
+                /> : <></>}
             </div>
             <div className={style.icons}>
               <div className={style.icons}>
                 {data.tweetCount}
-                <ChatBubbleOutlineIcon onClick={(()=>handleClickOpen(i))} />
+                <ChatBubbleOutlineIcon onClick={(() => handleClickOpen(i))} />
                 <div className={style.Dialog}>
                   {console.log(data.isOpen)}
-              <Dialog
-                open={data.isOpen}
-                onClose={handleClose}
-                style={{
-                  background: "rgba(91, 112, 131, 0.4)",
-                  fontSize: "15px",
-                  lineHeight: "40px",
-                }}
-              >
-                <TweetReply />
-              </Dialog>
-            </div>
+                  <Dialog
+                    open={!!data?.isOpen}
+                    onClose={handleClose}
+                    style={{
+                      background: "rgba(91, 112, 131, 0.4)",
+                      fontSize: "15px",
+                      lineHeight: "40px",
+                    }}
+                  >
+                    <TweetReply />
+                  </Dialog>
+                </div>
               </div>
-            
+
               <div className={style.icons}>
-                    {data.retweetCount}
-                    <SyncIcon />
-                  </div>
-                   <div  className={style.icons}>
-                <p style={{border:'none',background:'none',color:' rgb(102, 102, 192)'}}
-                   onClick={(()=>handleLike({Data:data.likesCount ,Index:i}))}><FavoriteBorderIcon style={{color:data.color}}/>
-                   </p>
-                   {data.likesCount}
-                   </div>
+                {data.retweetCount}
+                <SyncIcon />
+              </div>
+              <div className={style.icons}>
+                <p style={{ border: 'none', background: 'none', color: ' rgb(102, 102, 192)' }}
+                  onClick={(() => handleLike({ Data: data.likesCount, Index: i }))}><FavoriteBorderIcon style={{ color: data.color }} />
+                </p>
+                {data.likesCount}
+              </div>
               <div className={style.icons}>
                 {data.viewsCount}
                 <PollIcon />
